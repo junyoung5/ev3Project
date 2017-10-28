@@ -54,7 +54,7 @@ public:
 
     virtual int  get_speed()
     {
-        return 100;
+        return 150;
     }
 
     virtual void set_down(bool val)
@@ -110,13 +110,14 @@ void Crain::example_code()
         
         if(get_enter())
         {
-            c.set_speed_sp(get_speed());
+            c.set_speed_sp(30);
             c.run_forever();
         }
         
+        
         if(get_escape())
         {
-            c.set_speed_sp(-1*get_speed());
+            c.set_speed_sp(-30);
             c.run_forever();
         }
         
@@ -151,6 +152,8 @@ void Crain::example_code()
             a.run_forever();
             b.set_speed_sp(0);
             b.run_forever();
+            c.set_speed_sp(0);
+            c.run_forever();
         }
        
         
