@@ -7,7 +7,7 @@ private:
     ev3dev::motor a;
     ev3dev::motor b; 
     ev3dev::motor c;
-    
+    ev3dev::color_sensor colorSensor;
 public:
     // Hardware Configuration
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
@@ -98,70 +98,16 @@ void Crain::example_code()
 { //This function is for example, you should develop your own logics
     while(get_escape() == false)
     {
-        set_down(ev3dev::button::down.pressed());
-        set_up(ev3dev::button::up.pressed());
-        set_right(ev3dev::button::right.pressed());
-        set_left(ev3dev::button::left.pressed());
-        set_escape(ev3dev::button::back.pressed());
-        set_enter(ev3dev::button::enter.pressed());
-        
+      
     
         
-        
-        if(get_enter())
+        if (colorSensor.color() == 1)
         {
-            c.set_speed_sp(get_speed());
-            c.run_forever();
+            ev3dev::sound::speak("HI");
         }
-        
-        
-        if(get_escape())
-        {
-            c.set_speed_sp(1*get_speed());
-            c.run_forever();
-        }
-        
-        if(get_up())
-        {   
-                a.set_speed_sp(-1*get_speed());
-                a.run_forever();
-        } 
-        
-      
-        if(get_down())
-        {
-                a.set_speed_sp(get_speed());
-                a.run_forever();
-        }
-        if(get_left())
-        {
-               b.set_speed_sp(get_speed());
-               b.run_forever();
-        }
-        if(get_right())
-        {
-               b.set_speed_sp(-1* get_speed());
-               b.run_forever();
-        }
-         
-        
-       
-        if(!(get_up() | get_down() | get_right() | get_left() | get_enter() | get_escape()))
-        {
-            a.set_speed_sp(0);
-            a.run_forever();
-            b.set_speed_sp(0);
-            b.run_forever();
-            c.set_speed_sp(0);
-            c.run_forever();
-        }
-       
-        
     }
-
-    a.stop();
-    b.stop();
-    c.stop();
+       
+        
 }
 
 int main()
