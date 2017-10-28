@@ -105,11 +105,28 @@ void Crain::example_code()
         set_escape(ev3dev::button::back.pressed());
         set_enter(ev3dev::button::enter.pressed());
         
+    
+        
+        
+        if(get_enter())
+        {
+            c.set_speed_sp(get_speed());
+            c.run_forever();
+        }
+        
+        if(get_escape())
+        {
+            c.set_speed_sp(-1*get_speed());
+            c.run_forever();
+        }
+        
         if(get_up())
         {   
                 a.set_speed_sp(-1*get_speed());
                 a.run_forever();
-        }   
+        } 
+        
+      
         if(get_down())
         {
                 a.set_speed_sp(get_speed());
@@ -125,7 +142,8 @@ void Crain::example_code()
                b.set_speed_sp(-1* get_speed());
                b.run_forever();
         }
-       
+         
+        
        
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
@@ -134,10 +152,13 @@ void Crain::example_code()
             b.set_speed_sp(0);
             b.run_forever();
         }
+       
+        
     }
 
     a.stop();
     b.stop();
+    c.stop();
 }
 
 int main()

@@ -34,6 +34,7 @@ protected:
     virtual bool get_enter() = 0;   // you should override this function
     virtual bool get_escape() = 0;  // you should override this function
     virtual int  get_speed() = 0;   // you should override this function
+    
 
     virtual void set_down(bool val) = 0;    // you should override this function
     virtual void set_up(bool val) = 0;      // you should override this function
