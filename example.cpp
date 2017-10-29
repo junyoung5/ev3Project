@@ -101,7 +101,107 @@ public:
     void jun_code();
 };
 
+void Crain::jun_code()
+{
+     while(get_escape() == false)
+    {
+        
+        
+        //버튼이 눌렸는지 안눌렸는지 체크. 눌렸다면 get_동작()함수의 리턴값(ex.m_up, m_down 등)이 true로 바뀜. 
+        set_down(ev3dev::button::down.pressed());
+        set_up(ev3dev::button::up.pressed());
+        set_right(ev3dev::button::right.pressed());
+        set_left(ev3dev::button::left.pressed());
+        set_escape(ev3dev::button::back.pressed());
+        set_enter(ev3dev::button::enter.pressed());
+        
+        
+    
+        
+       
+        if(get_enter())
+        {
+            c.set_position(0);
+            c.set_position_sp(200);
+            c.set_speed_sp(20);
+            c.run_to_abs_pos();
+            c.set_stop_action("hold");
+            c.stop();
+        }
+        
+        
 
+        
+      
+        
+        //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
+        if(get_up()) // 
+        {   
+                a.set_speed_sp(-1*get_speed());
+                a.run_forever();
+        } 
+        
+      
+        if(get_down())
+        {
+                a.set_speed_sp(get_speed());
+                a.run_forever();
+        }
+        
+        if(get_left())
+        {
+            b.set_speed_sp(get_speed());
+            b.run_forever();
+        }
+    
+        /*   //while true라서 계속 움직임 위험한 코드. 
+        if(get_left())
+        {
+               //b.set_position(0);
+               b.set_position_sp(30);
+               b.set_speed_sp(get_speed());
+               
+               while(true)
+               {
+                   b.run_to_rel_pos();
+                   if(is_black())
+                   {
+                       
+                       a.set_position_sp(50);
+                       a.set_speed_sp(get_speed());
+                       a.run_to_rel_pos();
+                   }
+               }
+        }
+        */
+        
+        
+        if(get_right())
+        {
+               b.set_speed_sp(-1* get_speed());
+               b.run_forever();
+        }
+         
+      
+       //누르지 않은 상태면 다 멈추게 한다. 
+        if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
+        {
+            a.set_speed_sp(0);
+            a.run_forever();
+            b.set_speed_sp(0);
+            b.run_forever();
+
+        }
+    
+      
+        
+    }
+
+    a.stop();
+    b.stop();
+    c.stop();
+    
+}
 
 void Crain::example_code()
 { //This function is for example, you should develop your own logics
@@ -121,15 +221,7 @@ void Crain::example_code()
         
     
         
-        
-        if(get_enter())
-        {
-            c.set_speed_sp(get_speed());
-            c.run_forever();
-        }
-        
-        
-      
+       
         
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
@@ -145,33 +237,21 @@ void Crain::example_code()
                 a.run_forever();
         }
         
-        /*
         if(get_left())
         {
-            b.set_position_sp(100);
-            b.run_to_abs_pos();
+            b.set_speed_sp(get_speed());
+            b.run_forever();
         }
-        */
+    
         
-        if(get_left())
-        {
-               //b.set_position(0);
-               b.set_position_sp(50);
-               b.set_speed_sp(get_speed());
-               while(!is_black())
-               {
-               b.run_to_rel_pos();
-               }
-               
-               
-        }
+        
         if(get_right())
         {
                b.set_speed_sp(-1* get_speed());
                b.run_forever();
         }
          
-       /*
+      
        //누르지 않은 상태면 다 멈추게 한다. 
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
@@ -182,7 +262,7 @@ void Crain::example_code()
             c.set_speed_sp(0);
             c.run_forever();
         }
-        */
+    
       
         
     }
@@ -202,7 +282,7 @@ int main()
         { 
             
         
-        crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+        crain.jun_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
     }
