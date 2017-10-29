@@ -9,8 +9,9 @@ private:
     ev3dev::motor c;
     ev3dev::color_sensor colorSensor;
 public:
-    // Hardware Configuration
+    // Hardware Configuration. 초기화 객체에 알맞은 포트 넣어줌. 
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
+    
     {
         
     }
@@ -29,7 +30,7 @@ public:
     
     virtual bool get_down()
     {
-        return m_down;
+        return m_down; //처음엔 다 false로 되어있음. 
     }
 
     virtual bool get_up()
@@ -97,18 +98,44 @@ public:
     }
 public:
     void example_code();
+    void jun_code();
 };
+
+void Crain::jun_code()
+{//code for moving arm by itself.
+    
+    while(!get_touch_pressed())
+    {
+        b.set_speed(-1*get_speed());
+        b.run_to_rel_pos(1);
+        /*if(is_black())
+        {
+            a.set_position(50);
+            a.run_to_abs_pos();
+        }*/
+    }
+    
+    
+
+    
+}
+
 
 void Crain::example_code()
 { //This function is for example, you should develop your own logics
+
     while(get_escape() == false)
     {
+        
+        
+        //버튼이 눌렸는지 안눌렸는지 체크. 눌렸다면 get_동작()함수의 리턴값(ex.m_up, m_down 등)이 true로 바뀜. 
         set_down(ev3dev::button::down.pressed());
         set_up(ev3dev::button::up.pressed());
         set_right(ev3dev::button::right.pressed());
         set_left(ev3dev::button::left.pressed());
         set_escape(ev3dev::button::back.pressed());
         set_enter(ev3dev::button::enter.pressed());
+        
         
     
         
@@ -122,11 +149,12 @@ void Crain::example_code()
         
         if(get_escape())
         {
-            c.set_speed_sp(1*get_speed());
+            c.set_speed_sp(-1*get_speed());
             c.run_forever();
         }
         
-        if(get_up())
+        //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
+        if(get_up()) // 
         {   
                 a.set_speed_sp(-1*get_speed());
                 a.run_forever();
@@ -138,6 +166,15 @@ void Crain::example_code()
                 a.set_speed_sp(get_speed());
                 a.run_forever();
         }
+        
+        /*
+        if(get_left())
+        {
+            b.set_position_sp(100);
+            b.run_to_abs_pos();
+        }
+        */
+        
         if(get_left())
         {
                b.set_speed_sp(get_speed());
@@ -150,7 +187,7 @@ void Crain::example_code()
         }
          
         
-       
+       //누르지 않은 상태면 다 멈추게 한다. 
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter() | get_escape()))
         {
             a.set_speed_sp(0);
@@ -172,7 +209,10 @@ void Crain::example_code()
 int main()
 {     
     Crain crain;
-    while(true){
+    crain.jun_code;
+    
+    
+    /*while(true){
         //if(crain.get_touch_pressed()==true)
         { 
             
@@ -180,5 +220,5 @@ int main()
         crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
-    }
+    }*/
 }
