@@ -123,7 +123,7 @@ void Crain::jun_code()
         {
          
             c.set_position(0);
-            c.set_position_sp(70);
+            c.set_position_sp(60);
             c.set_speed_sp(30);
             c.run_to_abs_pos();
             
