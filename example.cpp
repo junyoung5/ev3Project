@@ -101,24 +101,6 @@ public:
     void jun_code();
 };
 
-void Crain::jun_code()
-{//code for moving arm by itself.
-    
-    while(!get_touch_pressed())
-    {
-        b.set_speed(-1*get_speed());
-        b.run_to_rel_pos(1);
-        /*if(is_black())
-        {
-            a.set_position(50);
-            a.run_to_abs_pos();
-        }*/
-    }
-    
-    
-
-    
-}
 
 
 void Crain::example_code()
@@ -142,16 +124,12 @@ void Crain::example_code()
         
         if(get_enter())
         {
-            c.set_speed_sp(get_speed());
-            c.run_forever();
-        }
-        
-        
-        if(get_escape())
-        {
             c.set_speed_sp(-1*get_speed());
             c.run_forever();
         }
+        
+        
+      
         
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
@@ -177,8 +155,10 @@ void Crain::example_code()
         
         if(get_left())
         {
+               b.set_position(0);
+               b.set_position_sp(100);
                b.set_speed_sp(get_speed());
-               b.run_forever();
+               b.run_to_abs_pos();
         }
         if(get_right())
         {
@@ -188,7 +168,7 @@ void Crain::example_code()
          
         
        //누르지 않은 상태면 다 멈추게 한다. 
-        if(!(get_up() | get_down() | get_right() | get_left() | get_enter() | get_escape()))
+        if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
             a.set_speed_sp(0);
             a.run_forever();
@@ -209,10 +189,9 @@ void Crain::example_code()
 int main()
 {     
     Crain crain;
-    crain.jun_code;
+   
     
-    
-    /*while(true){
+    while(true){
         //if(crain.get_touch_pressed()==true)
         { 
             
@@ -220,5 +199,5 @@ int main()
         crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
   
         }
-    }*/
+    }
 }
