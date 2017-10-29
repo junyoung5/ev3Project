@@ -124,7 +124,7 @@ void Crain::example_code()
         
         if(get_enter())
         {
-            c.set_speed_sp(-1*get_speed());
+            c.set_speed_sp(get_speed());
             c.run_forever();
         }
         
@@ -155,10 +155,15 @@ void Crain::example_code()
         
         if(get_left())
         {
-               b.set_position(0);
-               b.set_position_sp(100);
+               //b.set_position(0);
+               b.set_position_sp(50);
                b.set_speed_sp(get_speed());
-               b.run_to_abs_pos();
+               while(!is_black())
+               {
+               b.run_to_rel_pos();
+               }
+               
+               
         }
         if(get_right())
         {
@@ -166,7 +171,7 @@ void Crain::example_code()
                b.run_forever();
         }
          
-        
+       /*
        //누르지 않은 상태면 다 멈추게 한다. 
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
@@ -177,7 +182,8 @@ void Crain::example_code()
             c.set_speed_sp(0);
             c.run_forever();
         }
-       
+        */
+      
         
     }
 
