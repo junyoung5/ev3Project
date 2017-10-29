@@ -121,17 +121,20 @@ void Crain::jun_code()
        
         if(get_enter())
         {
-         /*//
+         
             c.set_position(0);
-            c.set_position_sp(200);
-            c.set_speed_sp(20);
+            c.set_position_sp(70);
+            c.set_speed_sp(30);
             c.run_to_abs_pos();
-            c.set_stop_action("hold"); //이거추가후에 엄청 모터가 엄청 빨리돔.. 뭐지. 
-            c.stop();
-            */
+            
+            //c.set_stop_action("hold"); //이거추가후에 엄청 모터가 엄청 빨리돔.. 뭐지. 
+            //c.stop();
+            
+            
+            /*
             c.set_speed_sp(10);
             c.run_forever();
-            
+            */
             
         }
         
@@ -196,8 +199,8 @@ void Crain::jun_code()
             a.run_forever();
             b.set_speed_sp(0);
             b.run_forever();
-            c.set_speed_sp(0);
-            c.run_forever();
+            //c.set_speed_sp(0);
+            //c.run_forever();
 
         }
     
