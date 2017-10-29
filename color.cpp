@@ -101,7 +101,7 @@ void Crain::example_code()
       
     
         
-        if (colorSensor.color() == 1)
+        if (colorSensor.reflected_light_intensity() == 1)
         {
             ev3dev::sound::speak("HI");
         }

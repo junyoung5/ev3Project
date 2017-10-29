@@ -7,7 +7,7 @@ private:
     ev3dev::motor a;
     ev3dev::motor b; 
     ev3dev::motor c;
-    
+    ev3dev::color_sensor colorSensor;
 public:
     // Hardware Configuration
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
@@ -16,6 +16,11 @@ public:
     }
     
     int m_speed;
+    
+    bool is_black()
+    {
+        return colorSensor.color() == 1;  //검정색이면 1==1 만족, 트루 반환?
+    }
     
     bool get_touch_pressed()
     {
