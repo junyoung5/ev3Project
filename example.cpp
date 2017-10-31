@@ -115,24 +115,46 @@ public:
     void example_code();
     void jun_code();
     void move_foot(int pos, int flag);
+    void move_neck(int pos, int flag);
+    void move_hand(int pos, int flag);
 };
 
 void Crain::move_foot(int pos, int flag)
 {
   
-        if (flag == 1)
-        {
-            pos *= -1;
-        }
-        c.set_position(0);
-        c.set_position_sp(pos);
-        c.set_speed_sp(get_speed());
-        c.run_to_abs_pos();
-  
-    
-    
+    if (flag == 1)
+    {
+        pos *= -1;
+    }
+    c.set_position(0);
+    c.set_position_sp(pos);
+    c.set_speed_sp(get_speed());
+    c.run_to_abs_pos();
 }
 
+void Crain::move_neck(int pos, int flag)
+{
+    if (flag == 1)
+    {
+        pos *= -1;
+    }
+    b.set_position(0);
+    b.set_position_sp(pos);
+    b.set_speed_sp(get_speed());
+    b.run_to_abs_pos();
+}
+
+void Crain::move_hand(int pos, int flag)
+{
+    if (flag == 1)
+    {
+        pos *= -1;
+    }
+    a.set_position(0);
+    a.set_position_sp(pos);
+    a.set_speed_sp(get_speed());
+    a.run_to_abs_pos();
+}
 void Crain::jun_code()
 {
     
@@ -358,7 +380,7 @@ int main()
             
         //crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
         crain.move_foot(600, 0);
-        
+        crain.move_neck(200, 0);
         
         
         
