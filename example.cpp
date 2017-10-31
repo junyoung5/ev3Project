@@ -404,7 +404,7 @@ int main()
             crain.move_foot(i, 0);
             
         }
-        sleep(1);
+        sleep(3);
         crain.move_neck(200, 0);
         
         }
