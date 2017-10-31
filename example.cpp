@@ -200,11 +200,17 @@ void Crain::test()
     
     {
     a.set_position(0);
-    a.set_position_sp(200);
+    a.set_position_sp(150);
     a.set_speed_sp(get_speed());
     a.run_to_abs_pos();
     a.set_stop_action("hold");
     }
+    
+    a.set_position(0);
+    a.set_position_sp(-150);
+    a.set_speed_sp(get_speed());
+    a.run_to_abs_pos();
+    a.set_stop_action("hold");
     
     // {
     // c.set_position(0);
@@ -441,7 +447,7 @@ int main()
         { 
             
         
-        crain.example_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+        crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
         
         }
     }
