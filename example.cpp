@@ -161,33 +161,33 @@ void Crain::test()
     
     
     //scan
-    c.set_position(0);
-    while(!c.position()==600)
-    {
-        std::cout<< "c.position: " << c.position_sp() << std::endl;
-        int i = 10;
-        dis = get_distance()/1000; // 100으로 증가. 
+    // c.set_position(0);
+    // while(!c.position()==600)
+    // {
+    //     std::cout<< "c.position: " << c.position_sp() << std::endl;
+    //     int i = 10;
+    //     dis = get_distance()/1000; // 100으로 증가. 
         
-        //std::cout<<"Distance: " << dis<< std::endl; //check distance
+    //     //std::cout<<"Distance: " << dis<< std::endl; //check distance
         
-        //b.set_stop_action("brake");
-        // b.stop_action();
-        b.stop();
+    //     //b.set_stop_action("brake");
+    //     // b.stop_action();
+    //     b.stop();
         
         
-        c.set_position(0);
-        c.set_position_sp(i);
-        c.set_speed_sp(get_speed());
-        c.run_to_abs_pos();
+    //     c.set_position(0);
+    //     c.set_position_sp(i);
+    //     c.set_speed_sp(get_speed());
+    //     c.run_to_abs_pos();
         
-        if (dis<4000 && dis>2500)
-        {
-            target_pos = c.position_sp();
-            std::cout<<"c.position: "<< target_pos <<std::endl;
-        }
-        i += 10;
-    }
-    c.set_stop_action("hold");
+    //     if (dis<4000 && dis>2500)
+    //     {
+    //         target_pos = c.position_sp();
+    //         std::cout<<"c.position: "<< target_pos <<std::endl;
+    //     }
+    //     i += 10;
+    // }
+    // c.set_stop_action("hold");
     
     // {
     // b.set_stop_action("hold");
@@ -205,6 +205,7 @@ void Crain::test()
     a.run_to_abs_pos();
     a.set_stop_action("hold");
     }
+    
     {
     c.set_position(0);
     c.set_position_sp(600);
