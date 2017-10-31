@@ -72,7 +72,7 @@ public:
 
     virtual int  get_speed()
     {
-        return 150;
+        return 500;
     }
 
     virtual void set_down(bool val)
@@ -404,7 +404,7 @@ int main()
             crain.move_foot(i, 0);
             
         }
-        sleep(3);
+        sleep(5);
         crain.move_neck(200, 0);
         
         }
