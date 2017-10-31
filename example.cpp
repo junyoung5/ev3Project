@@ -172,6 +172,7 @@ void Crain::test()
         c.set_position_sp(i);
         c.set_speed_sp(get_speed());
         c.run_to_abs_pos();
+        b.stop_action();
         
         if (dis<4000 && dis>2500)
         {
@@ -181,11 +182,6 @@ void Crain::test()
         
     }
     c.set_stop_action("hold");
-   
-    c.set_position(0);
-    c.set_position_sp(-300);
-    c.set_speed_sp(get_speed());
-    c.run_to_abs_pos();
     
     
     b.set_stop_action("hold");
