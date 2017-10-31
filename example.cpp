@@ -8,6 +8,8 @@ private:
     ev3dev::motor b; 
     ev3dev::motor c;
     ev3dev::color_sensor colorSensor;
+    ev3dev::ultrasonic_sensor ultra_q
+    
 public:
     // Hardware Configuration. 초기화 객체에 알맞은 포트 넣어줌. 
     Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
@@ -17,6 +19,13 @@ public:
     }
     
     int m_speed;
+    
+    in get_distance()
+    {
+        int dis;
+        ultra_q.distance_centimeters();
+        dis = ultra_q();
+    }
     
     bool is_black()
     {
