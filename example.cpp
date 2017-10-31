@@ -26,7 +26,7 @@ public:
     {
         int dis;
         
-        return ultra_q.distance_centimeters();
+        return ultra_q.distance_inches();
         
     }
     
@@ -161,9 +161,9 @@ void Crain::test()
     
     //scan
     
-    for(int i = 0; i < 600; i+=50)
+    for(int i = 0; i < 600; i+=10)
     {
-        dis = get_distance() * 100; // 100으로 증가. 
+        dis = get_distance(); // 100으로 증가. 
         
         std::cout<<"Distance: " << dis<< std::endl; //check distance
         
@@ -172,27 +172,35 @@ void Crain::test()
         c.set_speed_sp(get_speed());
         c.run_to_abs_pos();
         
-        if (dis<400 && dis>200)
+        if (dis<4000 && dis>2500)
         {
-            target_pos = c.position();
+            target_pos = c.position_sp();
             std::cout<<"c.position: "<< target_pos <<std::endl;
         }
         
     }
+    c.set_stop_action("hold");
     
     c.set_position(0);
     c.set_position_sp(-1 * target_pos);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
     
+    c.set_stop_action("hold");
     
+    // b.set_position(0);
+    // b.set_position_sp(200);
+    // b.set_speed_sp(get_speed());
+    // b.run_to_abs_pos();
     
+    b.set_stop_action("hold");
     
     c.set_position(0);
     c.set_position_sp(600);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
-
+    
+    c.set_stop_action("hold");
     
     
     
@@ -361,29 +369,29 @@ void Crain::example_code()
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
         {   
-                a.set_speed_sp(-1*get_speed());
-                a.run_forever();
+                b.set_speed_sp(-1*get_speed());
+                b.run_forever();
         } 
         
       
         if(get_down())
         {
-                a.set_speed_sp(get_speed());
-                a.run_forever();
+                b.set_speed_sp(get_speed());
+                b.run_forever();
         }
         
         if(get_left())
         {
-            b.set_speed_sp(get_speed());
-            b.run_forever();
+            c.set_speed_sp(get_speed());
+            c.run_forever();
         }
     
         
         
         if(get_right())
         {
-               b.set_speed_sp(-1* get_speed());
-               b.run_forever();
+               c.set_speed_sp(-1* get_speed());
+               c.run_forever();
         }
          
       
@@ -413,7 +421,7 @@ int main()
    
     
     while(true){
-        //if(crain.get_touch_pressed()==true)
+        if(crain.get_touch_pressed()==true)
         { 
             
         
