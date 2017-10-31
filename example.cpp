@@ -136,10 +136,11 @@ void Crain::jun_code()
         if(get_enter())
         {
          
-            c.set_position(0);
-            c.set_position_sp(150);
-            c.set_speed_sp(30);
-            c.run_to_abs_pos();
+            a.set_position(0);
+            a.set_position_sp(80);
+            a.set_speed_sp(80);
+            a.run_to_abs_pos();
+            a.set_stop_action("hold");
             
             //c.set_stop_action("hold"); //이거추가후에 엄청 모터가 엄청 빨리돔.. 뭐지. 
             //c.stop();
@@ -160,21 +161,21 @@ void Crain::jun_code()
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
         {   
-            a.set_position(0);
-            a.set_position_sp(50);
-            a.set_speed_sp(-1*get_speed());
+            b.set_position(0);
+            b.set_position_sp(-50);
+            b.set_speed_sp(get_speed());
             
-            a.run_to_abs_pos();
+            b.run_to_abs_pos();
         } 
         
       
         if(get_down())
         {
-            a.set_position(0);
-            a.set_position_sp(50);
-            a.set_speed_sp(get_speed());
+            b.set_position(0);
+            b.set_position_sp(50);
+            b.set_speed_sp(get_speed());
             
-            a.run_to_abs_pos();
+            b.run_to_abs_pos();
         }
         
         /*
@@ -226,27 +227,27 @@ void Crain::jun_code()
         
    
          
-        /*      
+             
        //누르지 않은 상태면 다 멈추게 한다. 
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
             a.set_speed_sp(0);
             a.run_forever();
-            b.set_speed_sp(0);
-            b.run_forever();
+            //b.set_speed_sp(0);
+            //b.run_forever();
             //c.set_speed_sp(0);
             //c.run_forever();
 
         }
         
-        */
+       
         
         
       
         std::cout << "DISTANCE: " << dis << std::endl;
     }
-
-    a.stop();
+    a.set_stop_action("coast");
+    //a.stop();
     b.stop();
     c.stop();
     
