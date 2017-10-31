@@ -22,9 +22,9 @@ public:
     
     int m_speed;
     
-    int get_distance()
+    double get_distance()
     {
-        int dis;
+        double dis;
         
         return ultra_q.distance_inches();
         
@@ -155,7 +155,8 @@ public:
 
 void Crain::test()
 {
-    int dis, target_pos, flag;
+    int target_pos, flag;
+    double dis;
     
     
     
@@ -163,7 +164,7 @@ void Crain::test()
     
     for(int i = 0; i < 600; i+=10)
     {
-        dis = get_distance(); // 100으로 증가. 
+        dis = get_distance()/1000; // 100으로 증가. 
         
         std::cout<<"Distance: " << dis<< std::endl; //check distance
         
