@@ -159,59 +159,59 @@ void Crain::test()
     double dis;
     
     
+    for(int z = 0; z < 3; z++)
+    {
     
-    //scan
-    // c.set_position(0);
-    // while(!c.position()==600)
-    // {
-    //     std::cout<< "c.position: " << c.position_sp() << std::endl;
-    //     int i = 10;
-    //     dis = get_distance()/1000; // 100으로 증가. 
+    if(z = 0){
+    c.set_position(0);
+    while(!c.position()==600)
+    {
+        std::cout<< "c.position: " << c.position_sp() << std::endl;
+        int i = 10;
+        dis = get_distance()/1000; // 100으로 증가. 
         
-    //     //std::cout<<"Distance: " << dis<< std::endl; //check distance
+        //std::cout<<"Distance: " << dis<< std::endl; //check distance
         
-    //     //b.set_stop_action("brake");
-    //     // b.stop_action();
-    //     b.stop();
+        //b.set_stop_action("brake");
+        // b.stop_action();
+        b.stop();
         
         
-    //     c.set_position(0);
-    //     c.set_position_sp(i);
-    //     c.set_speed_sp(get_speed());
-    //     c.run_to_abs_pos();
+        c.set_position(0);
+        c.set_position_sp(i);
+        c.set_speed_sp(get_speed());
+        c.run_to_abs_pos();
         
-    //     if (dis<4000 && dis>2500)
-    //     {
-    //         target_pos = c.position_sp();
-    //         std::cout<<"c.position: "<< target_pos <<std::endl;
-    //     }
-    //     i += 10;
-    // }
-    // c.set_stop_action("hold");
+        if (dis<4000 && dis>2500)
+        {
+            target_pos = c.position_sp();
+            std::cout<<"c.position: "<< target_pos <<std::endl;
+        }
+        i += 10;
+    }
+    c.set_stop_action("hold");
+    }
     
-    // {
-    // b.set_stop_action("hold");
-    // b.stop_action();
-    // b.set_position(0);
-    // b.set_position_sp(200);
-    // b.set_speed_sp(get_speed());
-    // b.run_to_abs_pos();
-    // }
+    if(z = 1)
+    {
+    b.set_stop_action("hold");
+    b.stop_action();
+    b.set_position(0);
+    b.set_position_sp(200);
+    b.set_speed_sp(get_speed());
+    b.run_to_abs_pos();
+    }
     
+    if(z = 2)
     {
     a.set_position(0);
-    a.set_position_sp(150);
+    a.set_position_sp(50);
     a.set_speed_sp(get_speed());
     a.run_to_abs_pos();
     a.set_stop_action("hold");
     }
     
-    
-    a.set_position_sp(-150);
-    a.set_speed_sp(get_speed());
-    a.run_to_abs_pos();
-    a.set_stop_action("hold");
-    
+    }
     // {
     // c.set_position(0);
     // c.set_position_sp(600);
