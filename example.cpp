@@ -12,11 +12,13 @@ private:
     
 public:
     // Hardware Configuration. 초기화 객체에 알맞은 포트 넣어줌. 
-    Crain():m_speed(0), touch_q(ev3dev::INPUT_2),a(ev3dev::OUTPUT_B), b(ev3dev::OUTPUT_C), c(ev3dev::OUTPUT_A)
+    Crain():m_speed(0), touch_q(ev3dev::INPUT_1),a(ev3dev::OUTPUT_A), b(ev3dev::OUTPUT_B), c(ev3dev::OUTPUT_C), ultra_q(ev3dev::INPUT_4)
     
     {
         
     }
+    
+    
     
     int m_speed;
     
@@ -158,21 +160,47 @@ void Crain::jun_code()
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
         {   
-                a.set_speed_sp(-1*get_speed());
-                a.run_forever();
+            a.set_position(0);
+            a.set_position_sp(50);
+            a.set_speed_sp(-1*get_speed());
+            
+            a.run_to_abs_pos();
         } 
         
       
         if(get_down())
         {
-                a.set_speed_sp(get_speed());
-                a.run_forever();
+            a.set_position(0);
+            a.set_position_sp(50);
+            a.set_speed_sp(get_speed());
+            
+            a.run_to_abs_pos();
         }
         
+        /*
         if(get_left())
         {
             b.set_speed_sp(get_speed());
             b.run_forever();
+        }
+        */
+        
+        if(get_left())
+        {
+            c.set_position(0);
+            c.set_position_sp(-150);
+            c.set_speed_sp(get_speed());
+            
+            c.run_to_abs_pos();
+        }
+        
+             
+        if(get_right())
+        {
+            c.set_position(0);
+            c.set_position_sp(150);
+            c.set_speed_sp(get_speed());
+            c.run_to_abs_pos();
         }
     
         /*   //while true라서 계속 움직임 위험한 코드. 
@@ -196,14 +224,9 @@ void Crain::jun_code()
         }
         */
         
-        
-        if(get_right())
-        {
-               b.set_speed_sp(-1* get_speed());
-               b.run_forever();
-        }
+   
          
-      
+        /*      
        //누르지 않은 상태면 다 멈추게 한다. 
         if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
         {
@@ -216,12 +239,11 @@ void Crain::jun_code()
 
         }
         
-        if (dis > 50)
-        {
-            std::cout << "DISTANCE: " << dis << std::endl;
-        }
-      
+        */
         
+        
+      
+        std::cout << "DISTANCE: " << dis << std::endl;
     }
 
     a.stop();
