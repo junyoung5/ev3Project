@@ -206,7 +206,7 @@ void Crain::test()
     a.set_stop_action("hold");
     }
     
-    a.set_position(0);
+    
     a.set_position_sp(-150);
     a.set_speed_sp(get_speed());
     a.run_to_abs_pos();
