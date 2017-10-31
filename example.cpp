@@ -402,9 +402,9 @@ int main()
         for(int i = 0; i < 600; i+= 10)
         {
             crain.move_foot(i, 0);
-            sleep(500);
+            
         }
-        
+        sleep(1);
         crain.move_neck(200, 0);
         
         }
