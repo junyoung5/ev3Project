@@ -172,7 +172,7 @@ void Crain::test()
         c.set_position_sp(i);
         c.set_speed_sp(get_speed());
         c.run_to_abs_pos();
-        b.stop_action();
+        b.set_stop_action("brake");
         
         if (dis<4000 && dis>2500)
         {
