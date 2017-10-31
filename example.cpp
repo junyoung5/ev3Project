@@ -376,8 +376,11 @@ void Crain::example_code()
         
     
         
-       
-        
+       if(get_enter())
+        {
+            a.set_speed_sp(get_speed());
+            a.run_forever();
+        }
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
         {   
