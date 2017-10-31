@@ -167,15 +167,18 @@ void Crain::test()
         int i = 10;
         dis = get_distance()/1000; // 100으로 증가. 
         
-        std::cout<<"Distance: " << dis<< std::endl; //check distance
+        //std::cout<<"Distance: " << dis<< std::endl; //check distance
+        
+        b.set_stop_action("brake");
+        // b.stop_action();
+        // b.stop();
+        
         
         c.set_position(0);
         c.set_position_sp(i);
         c.set_speed_sp(get_speed());
         c.run_to_abs_pos();
-        // b.set_stop_action("brake");
-        // b.stop_action();
-        // b.stop();
+        
         if (dis<4000 && dis>2500)
         {
             target_pos = c.position_sp();
@@ -346,7 +349,7 @@ void Crain::jun_code()
         std::cout << "DISTANCE: " << dis << std::endl;
     }
     a.set_stop_action("coast");
-    //a.stop();
+    a.stop();
     b.stop();
     c.stop();
     
