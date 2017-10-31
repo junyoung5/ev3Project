@@ -399,15 +399,13 @@ int main()
         { 
         // int scan = 1;
      
-        
-        for(int i = 0; i < 600; i+=10)
+        for(int i = 0; i < 600; i+= 10)
         {
-        crain.move_foot(i, 0);
+            crain.move_foot(i, 0);
+            sleep(500);
         }
         
         crain.move_neck(200, 0);
-        
-        crain.move_hand(130, 0);
         
         }
     }
