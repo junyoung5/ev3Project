@@ -164,15 +164,15 @@ void Crain::test()
     c.set_position(0);
     while(!c.position()==600)
     {
-        std::cout<< "c.position: " << c.position() << std::endl;
+        std::cout<< "c.position: " << c.position_sp() << std::endl;
         int i = 10;
         dis = get_distance()/1000; // 100으로 증가. 
         
         //std::cout<<"Distance: " << dis<< std::endl; //check distance
         
-        b.set_stop_action("brake");
+        //b.set_stop_action("brake");
         // b.stop_action();
-        // b.stop();
+        b.stop();
         
         
         c.set_position(0);
@@ -189,29 +189,30 @@ void Crain::test()
     }
     c.set_stop_action("hold");
     
-    
+    {
     b.set_stop_action("hold");
     b.stop_action();
     b.set_position(0);
     b.set_position_sp(200);
     b.set_speed_sp(get_speed());
     b.run_to_abs_pos();
+    }
     
-    
+    {
     a.set_position(0);
     a.set_position_sp(200);
     a.set_speed_sp(get_speed());
     a.run_to_abs_pos();
     a.set_stop_action("hold");
-    
-    
+    }
+    {
     c.set_position(0);
     c.set_position_sp(600);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
     
     c.set_stop_action("hold");
-    
+    }
     
     
 }
