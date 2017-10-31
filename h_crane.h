@@ -25,6 +25,7 @@ protected:
     bool m_left;
     bool m_enter;
     bool m_escape;
+    
          
 protected:
     virtual bool get_down() = 0;    // you should override this function

@@ -20,7 +20,7 @@ public:
     
     
     
-    int m_speed;
+    int m_speed, pose, flag;
     
     double get_distance()
     {
@@ -114,19 +114,19 @@ public:
 public:
     void example_code();
     void jun_code();
-    void move_foot();
+    void move_foot(int pos, int flag);
 };
 
 void Crain::move_foot(int pos, int flag)
 {
   
-        if (flag == TRUE)
+        if (flag == 1)
         {
             pos *= -1;
         }
         a.set_position(0);
-        a.set_postion_sp(pos);
-        a.set_speed(get_speed());
+        a.set_position_sp(pos);
+        a.set_speed_sp(get_speed());
         a.run_to_abs_pos();
   
     
@@ -357,7 +357,7 @@ int main()
         { 
             
         //crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
-        crain.move_foot();
+        crain.move_foot(600, 0);
         
         
         
