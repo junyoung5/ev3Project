@@ -183,18 +183,24 @@ void Crain::test()
     c.set_stop_action("hold");
     
     c.set_position(0);
-    c.set_position_sp(-1 * target_pos);
+    c.set_position_sp(-300);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
     
     c.set_stop_action("hold");
     
-    // b.set_position(0);
-    // b.set_position_sp(200);
-    // b.set_speed_sp(get_speed());
-    // b.run_to_abs_pos();
-    
+    b.set_position(0);
+    b.set_position_sp(200);
+    b.set_speed_sp(get_speed());
+    b.run_to_abs_pos();
     b.set_stop_action("hold");
+    
+    a.set_position(0);
+    a.set_position_sp(200);
+    a.set_speed_sp(get_speed());
+    a.run_to_abs_pos();
+    a.set_stop_action("hold");
+    
     
     c.set_position(0);
     c.set_position_sp(600);
