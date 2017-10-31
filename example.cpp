@@ -172,6 +172,7 @@ void Crain::move_hand(int pos, int flag)
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed());
     a.run_to_abs_pos();
+    a.set_stop_action("hold");
 }
 void Crain::jun_code()
 {
@@ -404,7 +405,7 @@ int main()
         
         // crain.move_neck(200, 0);
         
-        crain.example_code();
+       crain.move_hand(130, 0);
         
         }
     }
