@@ -118,7 +118,9 @@ public:
     void stop_foot();
     void stop_neck();
     void stop_hand();
+    int position_foot();
 };
+
 void Crain::stop_foot()
 {
     c.set_speed_sp(0);
@@ -173,6 +175,10 @@ void Crain::move_hand(int pos, int flag)
     a.set_stop_action("hold");
 }
 
+int Crain::position_foot()
+{
+    return c.position();
+}
 int main()
 {     
     Crain crain;
@@ -187,9 +193,10 @@ int main()
         for(int i = 0; i < 600; i+= 10)
         {
             crain.move_foot(i, 0);
+            std::cout<< crain.position_foot() <<std::endl;
             
         }
-        sleep(3);
+        sleep(2);
         crain.move_neck(200, 0);
         
         }
