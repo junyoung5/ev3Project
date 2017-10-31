@@ -8,7 +8,7 @@ private:
     ev3dev::motor b; 
     ev3dev::motor c;
     ev3dev::color_sensor colorSensor;
-    ev3dev::ultrasonic_sensor ultra_q
+    ev3dev::ultrasonic_sensor ultra_q;
     
 public:
     // Hardware Configuration. 초기화 객체에 알맞은 포트 넣어줌. 
@@ -20,11 +20,12 @@ public:
     
     int m_speed;
     
-    in get_distance()
+    int get_distance()
     {
         int dis;
-        ultra_q.distance_centimeters();
-        dis = ultra_q();
+        
+        return ultra_q.distance_centimeters();
+        
     }
     
     bool is_black()
@@ -112,6 +113,9 @@ public:
 
 void Crain::jun_code()
 {
+    
+    int dis;
+    
      while(get_escape() == false)
     {
         
@@ -123,8 +127,7 @@ void Crain::jun_code()
         set_left(ev3dev::button::left.pressed());
         set_escape(ev3dev::button::back.pressed());
         set_enter(ev3dev::button::enter.pressed());
-        
-        
+        dis = get_distance();
     
         
        
@@ -212,7 +215,11 @@ void Crain::jun_code()
             //c.run_forever();
 
         }
-    
+        
+        if (dis > 50)
+        {
+            std::cout << "DISTANCE: " << dis << std::endl;
+        }
       
         
     }
@@ -303,7 +310,7 @@ int main()
             
         
         crain.jun_code(); //This line is for example, you should erase this ex_code in your 'real code' 
-  
+        
         }
     }
 }
