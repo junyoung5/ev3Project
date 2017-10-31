@@ -189,14 +189,14 @@ void Crain::test()
     }
     c.set_stop_action("hold");
     
-    {
-    b.set_stop_action("hold");
-    b.stop_action();
-    b.set_position(0);
-    b.set_position_sp(200);
-    b.set_speed_sp(get_speed());
-    b.run_to_abs_pos();
-    }
+    // {
+    // b.set_stop_action("hold");
+    // b.stop_action();
+    // b.set_position(0);
+    // b.set_position_sp(200);
+    // b.set_speed_sp(get_speed());
+    // b.run_to_abs_pos();
+    // }
     
     {
     a.set_position(0);
