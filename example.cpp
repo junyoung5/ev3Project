@@ -172,9 +172,7 @@ void Crain::test()
         
         //std::cout<<"Distance: " << dis<< std::endl; //check distance
         
-        //b.set_stop_action("brake");
-        // b.stop_action();
-        b.stop();
+        
         
         
         c.set_position(0);
@@ -194,7 +192,7 @@ void Crain::test()
     
     if(z = 1)
     {
-    b.set_stop_action("hold");
+    
     b.stop_action();
     b.set_position(0);
     b.set_position_sp(200);
