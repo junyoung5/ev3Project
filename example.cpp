@@ -203,7 +203,7 @@ int main()
         sleep(1);
         crain.move_neck(200, 1);
         sleep(2);
-        crain.move_foot(600, 0);
+        crain.move_foot(600, 1);
         sleep(2);
         crain.move_hand(100, 1);
         
