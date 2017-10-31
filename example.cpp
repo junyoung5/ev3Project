@@ -164,6 +164,7 @@ void Crain::test()
     c.set_position(0);
     while(!c.position()==600)
     {
+        std::cout<< "c.position: " << c.position() << std::endl;
         int i = 10;
         dis = get_distance()/1000; // 100으로 증가. 
         
