@@ -108,10 +108,95 @@ public:
     {
         m_speed = val;    
     }
+    /*
+    //move function test
+    virtual void move_side(ev3dev::motor c, int pos, int flag)
+    {
+        if (flag == True)
+        {
+            pos *= -1;
+        }
+        c.set_position(0);
+        c.set_postion_sp(pos);
+        c.set_speed(get_speed());
+        c.run_to_abs_pos();
+    }
+    
+    virtual void move_horizontal(ev3dev::motor b, int pos, int flag)
+    {
+        if (flag == True)
+        {
+            pos *= -1;
+        }
+        b.set_position(0);
+        b.set_postion_sp(pos);
+        b.set_speed(get_speed());
+        b.run_to_abs_pos();
+    }
+    
+    virtual void catch(ev3dev::motor a, int pos, int flag)
+    {
+        if (flag == True)
+        {
+            pos *= -1;
+        }
+        a.set_position(0);
+        a.set_postion_sp(pos);
+        a.set_speed(get_speed());
+        a.run_to_abs_pos();
+    }
+    
+    */
 public:
     void example_code();
     void jun_code();
+    void test();
 };
+
+void Crain::test()
+{
+    int dis, target_pos, flag;
+    
+    
+    
+    //scan
+    
+    for(int i = 0; i < 600; i+=50)
+    {
+        dis = get_distance() * 100; // 100으로 증가. 
+        
+        std::cout<<"Distance: " << dis<< std::endl; //check distance
+        
+        c.set_position(0);
+        c.set_position_sp(i);
+        c.set_speed_sp(get_speed());
+        c.run_to_abs_pos();
+        
+        if (dis<400 && dis>200)
+        {
+            target_pos = c.position();
+            std::cout<<"c.position: "<< target_pos <<std::endl;
+        }
+        
+    }
+    
+    c.set_position(0);
+    c.set_position_sp(-1 * target_pos);
+    c.set_speed_sp(get_speed());
+    c.run_to_abs_pos();
+    
+    
+    
+    
+    c.set_position(0);
+    c.set_position_sp(600);
+    c.set_speed_sp(get_speed());
+    c.run_to_abs_pos();
+
+    
+    
+    
+}
 
 void Crain::jun_code()
 {
@@ -332,7 +417,7 @@ int main()
         { 
             
         
-        crain.jun_code(); //This line is for example, you should erase this ex_code in your 'real code' 
+        crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
         
         }
     }
