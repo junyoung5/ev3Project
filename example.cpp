@@ -114,38 +114,12 @@ public:
 public:
     void example_code();
     void jun_code();
-    void test();
+    void move_foot();
 };
 
-void Crain::test()
+void Crain::move_foot(int pos, int flag)
 {
-        //move function test
-    void move_foot(motor c, int pos, int flag)
-    {
-        if (flag == TRUE)
-        {
-            pos *= -1;
-        }
-        c.set_position(0);
-        c.set_postion_sp(pos);
-        c.set_speed(get_speed());
-        c.run_to_abs_pos();
-    }
-    
-    void move_neck(motor b, int pos, int flag)
-    {
-        if (flag == TRUE)
-        {
-            pos *= -1;
-        }
-        b.set_position(0);
-        b.set_postion_sp(pos);
-        b.set_speed(get_speed());
-        b.run_to_abs_pos();
-    }
-    
-    void move_hand(motor a, int pos, int flag)
-    {
+  
         if (flag == TRUE)
         {
             pos *= -1;
@@ -154,12 +128,8 @@ void Crain::test()
         a.set_postion_sp(pos);
         a.set_speed(get_speed());
         a.run_to_abs_pos();
-    }
+  
     
-    
-    
-    
-   
     
 }
 
@@ -381,12 +351,16 @@ int main()
     Crain crain;
    
     
-    while(true){
+    while(true)
+    {
         if(crain.get_touch_pressed()==true)
         { 
             
+        //crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
+        crain.move_foot();
         
-        crain.test(); //This line is for example, you should erase this ex_code in your 'real code' 
+        
+        
         
         }
     }
