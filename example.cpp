@@ -161,8 +161,8 @@ void Crain::test()
     
     
     //scan
-    
-    while(!c.postion()==600)
+    c.set_position(0);
+    while(!c.position()==600)
     {
         int i = 10;
         dis = get_distance()/1000; // 100으로 증가. 
