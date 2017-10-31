@@ -124,10 +124,10 @@ void Crain::move_foot(int pos, int flag)
         {
             pos *= -1;
         }
-        a.set_position(0);
-        a.set_position_sp(pos);
-        a.set_speed_sp(get_speed());
-        a.run_to_abs_pos();
+        c.set_position(0);
+        c.set_position_sp(pos);
+        c.set_speed_sp(get_speed());
+        c.run_to_abs_pos();
   
     
     
