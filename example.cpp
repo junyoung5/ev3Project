@@ -281,14 +281,14 @@ int main()
         std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
         
         
-        for(int i = 0; i < 600; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
+        for(int i = 0; i < position; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
         {
            
             dis = crain.get_distance();
             std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
             crain.move_foot(i, 1); //left
             
-            if(position < 0) {break;}
+            
             if(dis < 6){
                 crain.stop_foot();
                 position = 600 - crain.position_foot(); //get finish position
@@ -313,46 +313,6 @@ int main()
         
         sleep(5);
         
-        
-        
-        // crain.move_foot(500, 1);
-        // sleep(5);
-        
-        
-        
-        
-        
-        // for(int i = 0; i < 400; i += 10)
-        // {
-        
-        // crain.move_foot(i, 0);
-        
-            
-        // }
-        // sleep(3);
-        
-        // crain.move_neck(400, 0);
-        // sleep(3);
-        
-        // crain.move_hand(140, 0);
-        // sleep(3);
-        
-        
-        // crain.move_neck(400, 1);
-        // sleep(3);
-        
-        
-        // crain.move_foot(400, 1);
-        // sleep(3);
-        
-        // crain.move_neck(400, 0);
-        // sleep(3);
-        
-        
-        // crain.move_hand(70, 1);
-        
-        // sleep(1);
-        // crain.move_neck(400, 1);
         }
         
         }
