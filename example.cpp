@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 300;
     }
     
     virtual int get_speed_neck()
     {
-        return 200;
+        return 300;
     }
     // virtual int  get_speed_foot()
     // {
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 100;
+        return 150;
     }
 
     virtual void set_down(bool val)
@@ -205,20 +205,22 @@ int main()
     
     while(true)
     {
-        double dis;
-        dis = crain.get_distance();
-        std::cout<< "DISTANCE: " << dis <<std::endl;
+        
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
         
-            for(int i = 0; i < 400; i += 10)
-            {
+        double dis;
+        dis = crain.get_distance();
+        std::cout<< "DISTANCE: " << dis <<std::endl;
+        
+        for(int i = 0; i < 400; i += 10)
+        {
             
-            crain.move_foot(i, 0);
-            std::cout<< crain.position_foot() <<std::endl;
+        crain.move_foot(i, 0);
             
-            }
+            
+        }
         sleep(3);
         
         crain.move_neck(400, 0);
@@ -241,7 +243,7 @@ int main()
         
         crain.move_hand(70, 1);
         
-        sleep(3);
+        sleep(1);
         crain.move_neck(400, 1);
         
         
