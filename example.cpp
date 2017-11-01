@@ -221,7 +221,7 @@ int main()
         sleep(1);
         crain.move_neck(200, 1);
         sleep(2);
-        for(int i = 0; i < 600; i+=10)
+        for(int i = 0; i < 400; i+=10)
         {
         crain.move_foot(-1*i, 0);
         }
