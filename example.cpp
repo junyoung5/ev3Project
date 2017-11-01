@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 1000;
+        return 200;
     }
     
     virtual int get_speed_neck()
     {
-        return 300;
+        return 200;
     }
     // virtual int  get_speed_foot()
     // {
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 200;
+        return 100;
     }
 
     virtual void set_down(bool val)
@@ -216,31 +216,29 @@ int main()
             std::cout<< crain.position_foot() <<std::endl;
             
             }
-        
         sleep(2);
+        
         crain.move_neck(400, 0);
         sleep(3);
+        
         crain.move_hand(250, 0);
         sleep(2);
-        for(int i = 0; i < 400; i++)
-        {
-            crain.move_neck(i, 1);
-        }
         
+        
+        crain.move_neck(400, 1);
         sleep(2);
-        for(int i = 0; i < 400; i+=10)
-        {
-        crain.move_foot(-1*i, 0);
-        }
+        
+        
+        crain.move_foot(400, 1);
         sleep(3);
         
         crain.move_neck(400, 0);
-        
         sleep(3);
         
-        for(int i = 0; i < 70; i++)
-        crain.move_hand(-1 * i, 0);
         
+        crain.move_hand(70, 1);
+        
+        sleep(1);
         crain.move_neck(400, 1);
         
         
