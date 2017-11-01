@@ -72,7 +72,7 @@ public:
     
     virtual int get_speed()
     {
-        return 800;
+        return 1000;
     }
     
     virtual int get_speed_neck()
@@ -201,16 +201,12 @@ int Crain::position_foot()
 int main()
 {     
     Crain crain;
-   
     
     while(true)
     {
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
-     
-        for(int i = 0; i < 400; i+= 10)
-        {
             crain.move_foot(i, 0);
             std::cout<< crain.position_foot() <<std::endl;
             
@@ -228,6 +224,9 @@ int main()
         }
         sleep(3);
         crain.move_hand(0, 0);
+        
+        
+        delete crain;
         
         }
     }
