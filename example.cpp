@@ -205,6 +205,9 @@ int main()
     
     while(true)
     {
+        double dis;
+        dis = crain.get_distance();
+        std::cout<< "DISTANCE: " << dis <<std::endl;
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
