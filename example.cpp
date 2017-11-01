@@ -216,11 +216,11 @@ int main()
             }
         
         sleep(2);
-        crain.move_neck(200, 0);
+        crain.move_neck(300, 0);
         sleep(1);
-        crain.move_hand(150, 0);
+        crain.move_hand(200, 0);
         sleep(1);
-        crain.move_neck(250, 1);
+        crain.move_neck(300, 1);
         sleep(2);
         for(int i = 0; i < 400; i+=10)
         {
@@ -228,7 +228,7 @@ int main()
         }
         sleep(3);
         
-        for(int i = 0; i < 150; i++)
+        for(int i = 0; i < 200; i++)
         crain.move_hand(-1 * i, 0);
         
         
