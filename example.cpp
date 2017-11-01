@@ -216,7 +216,7 @@ int main()
         
         sleep(0.5);
         dis = crain.get_distance();
-        //std::cout<< "DISTANCE: " << dis <<std::endl;
+        std::cout<< "DISTANCE: " << dis <<std::endl;
             
         
         
