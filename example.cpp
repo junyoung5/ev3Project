@@ -254,7 +254,9 @@ int main()
                 sleep(3);
                 crain.reset_foot();
                 crain.move_foot(position, 0);
+                break;
             }
+            
             
         }
         
