@@ -266,7 +266,7 @@ int main()
             
         }
         
-        sleep(15);
+        sleep(5);
         
         crain.reset_foot();
         for(int i = 0; i < 600; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
@@ -279,7 +279,7 @@ int main()
             if(position < 0) {break;}
             if(dis < 6){
                 crain.stop_foot();
-                position = 300 - crain.position_foot(); //get finish position
+                position = 600 - crain.position_foot(); //get finish position
                 std::cout<<"POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
