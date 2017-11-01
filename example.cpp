@@ -190,8 +190,9 @@ void Crain::move_hand(int pos, int flag)
     a.set_position(0);
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed_hand());
-    a.run_to_abs_pos();
     a.set_stop_action("hold");
+    a.run_to_abs_pos();
+    
 }
 
 int Crain::position_foot()
