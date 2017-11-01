@@ -208,49 +208,78 @@ int main()
         
         if(crain.get_touch_pressed()==true)
         { 
-        // int scan = 1;
         
         while(true)
         {
         double dis;
+        int position;
         
-        
-        sleep(2);
+        sleep(0.5);
         dis = crain.get_distance()/100;
-        std::cout<< "DISTANCE: " << dis <<std::endl;
+        //std::cout<< "DISTANCE: " << dis <<std::endl;
             
         
-        for(int i = 0; i < 400; i += 10)
+        
+        for(int i = 0; i < 600; i ++)
         {
+            crain.move_foot(i, 0);
+            if(dis < 6)
+            {
+                crain.stop_foot();
+                position = 600 - crain.position_foot(); //get finish position
+                crain.move_neck(400, 0);
+                sleep(3);
+                crain.move_hand(180, 0);
+                sleep(3);
+                crain.move_neck(400, 1);
+                sleep(3);
+                crain.move_foot(position, 1);
+            }
+        }
         
-        crain.move_foot(i, 0);
+        sleep(5);
+        
+        
+        
+        
+        // crain.move_foot(500, 1);
+        // sleep(5);
+        
+        
+        
+        
+        
+        // for(int i = 0; i < 400; i += 10)
+        // {
+        
+        // crain.move_foot(i, 0);
         
             
-        }
-        sleep(3);
+        // }
+        // sleep(3);
         
-        crain.move_neck(400, 0);
-        sleep(3);
+        // crain.move_neck(400, 0);
+        // sleep(3);
         
-        crain.move_hand(140, 0);
-        sleep(3);
-        
-        
-        crain.move_neck(400, 1);
-        sleep(3);
+        // crain.move_hand(140, 0);
+        // sleep(3);
         
         
-        crain.move_foot(400, 1);
-        sleep(3);
-        
-        crain.move_neck(400, 0);
-        sleep(3);
+        // crain.move_neck(400, 1);
+        // sleep(3);
         
         
-        crain.move_hand(70, 1);
+        // crain.move_foot(400, 1);
+        // sleep(3);
         
-        sleep(1);
-        crain.move_neck(400, 1);
+        // crain.move_neck(400, 0);
+        // sleep(3);
+        
+        
+        // crain.move_hand(70, 1);
+        
+        // sleep(1);
+        // crain.move_neck(400, 1);
         }
         
         }
