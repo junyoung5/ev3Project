@@ -241,7 +241,7 @@ int main()
         for(int i = 0; i < 70; i++)
         crain.move_hand(-1 * i, 0);
         
-        crain.move_neck(0, 1);
+        crain.move_neck(400, 1);
         
         
         }
