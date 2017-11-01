@@ -229,8 +229,8 @@ int main()
             if(dis < 6)
             {
                 
-                crain.stop_foot();
-                position = 300 - crain.position_foot(); //get finish position
+                //crain.stop_foot();
+                //position = 300 - crain.position_foot(); //get finish position
                 std::cout<<"POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
@@ -238,7 +238,7 @@ int main()
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
-                crain.move_foot(position, 0);
+                //crain.move_foot(position, 0);
             }
         }
         
