@@ -196,7 +196,7 @@ void Crain::move_hand(int pos, int flag)
 
 int Crain::position_foot()
 {
-    return c.position();
+    return c.position_sp();
 }
 int main()
 {     
