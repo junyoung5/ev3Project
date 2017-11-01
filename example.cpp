@@ -208,7 +208,7 @@ int main()
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
-        int dis[100];
+        int dis[450];
             for(int i = 0; i < 400; i += 10)
             {
                 
