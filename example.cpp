@@ -258,6 +258,8 @@ int main()
                 crain.move_neck(400,0);
                 sleep(3);
                 crain.move_hand(100, 1);
+                sleep(3);
+                crain.move_neck(400,1);
                 break;
             }
             
@@ -291,6 +293,8 @@ int main()
                 sleep(3);
                 crain.move_hand(130, 1);
                 sleep(3);
+                crain.move_neck(400, 1);
+                
                 break;
             }
         }
