@@ -227,7 +227,9 @@ int main()
         crain.move_foot(-1*i, 0);
         }
         sleep(3);
-        crain.move_hand(0, 0);
+        
+        for(int i = 0; i < 100; i++)
+        crain.move_hand(-1 * i, 0);
         
         
        
