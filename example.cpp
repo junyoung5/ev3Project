@@ -210,17 +210,16 @@ int main()
         { 
         // int scan = 1;
         double dis;
-        while(true)
-        {
+        
             
-            dis = crain.get_distance();
-            std::cout<< "DISTANCE: " << dis <<std::endl;
-        }
+        
         for(int i = 0; i < 400; i += 10)
         {
-            
+        
+        dis = crain.get_distance();
+        std::cout<< "DISTANCE: " << dis <<std::endl;
         crain.move_foot(i, 0);
-            
+        
             
         }
         sleep(3);
