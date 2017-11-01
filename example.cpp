@@ -209,16 +209,20 @@ int main()
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
+        
+        while(true)
+        {
         double dis;
         
+        
+        sleep(2);
+        dis = crain.get_distance()/100;
+        std::cout<< "DISTANCE: " << dis <<std::endl;
             
         
         for(int i = 0; i < 400; i += 10)
         {
         
-        dis = crain.get_distance()/100;
-        sleep(3/40);
-        std::cout<< "DISTANCE: " << dis <<std::endl;
         crain.move_foot(i, 0);
         
             
@@ -247,7 +251,7 @@ int main()
         
         sleep(1);
         crain.move_neck(400, 1);
-        
+        }
         
         }
     }
