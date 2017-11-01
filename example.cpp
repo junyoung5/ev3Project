@@ -69,10 +69,29 @@ public:
     {
         return m_escape;
     }
-
-    virtual int  get_speed()
+    
+    virtual int get_speed()
     {
-        return 500;
+        return 800;
+    }
+    
+    virtual int get_speed_neck()
+    {
+        return 300;
+    }
+    // virtual int  get_speed_foot()
+    // {
+    //     return 600;
+    // }
+    
+    // virtual int  get_speed_neck()
+    // {
+    //     return 300;
+    // }
+    
+    virtual int get_speed_hand()
+    {
+        return 200;
     }
 
     virtual void set_down(bool val)
@@ -158,7 +177,7 @@ void Crain::move_neck(int pos, int flag)
     }
     b.set_position(0);
     b.set_position_sp(pos);
-    b.set_speed_sp(get_speed());
+    b.set_speed_sp(get_speed_neck());
     b.run_to_abs_pos();
 }
 
@@ -170,7 +189,7 @@ void Crain::move_hand(int pos, int flag)
     }
     a.set_position(0);
     a.set_position_sp(pos);
-    a.set_speed_sp(get_speed());
+    a.set_speed_sp(get_speed_hand());
     a.run_to_abs_pos();
     a.set_stop_action("hold");
 }
@@ -208,7 +227,7 @@ int main()
         crain.move_foot(-1*i, 0);
         }
         sleep(3);
-        crain.move_hand(100, 1);
+        crain.move_hand(0, 0);
         
         }
     }
