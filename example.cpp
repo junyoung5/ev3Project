@@ -269,8 +269,9 @@ int main()
         sleep(5);
         
         position = crain.position_foot();
-        std::cout<< "CHECK POSITION WHILE LEFT: " << position  <<std::endl; //get distance
+       
         crain.reset_foot();
+        std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
         
         
         for(int i = 0; i < 600; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
@@ -284,7 +285,7 @@ int main()
             if(dis < 6){
                 crain.stop_foot();
                 position = 600 - crain.position_foot(); //get finish position
-                std::cout<<"POSITION:           "<<position<<std::endl;
+                std::cout<<"LEFT POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
                 crain.move_hand(180, 0);
