@@ -238,7 +238,7 @@ int main()
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
-                crain.move_foot(position, 1);
+                crain.move_foot(position, 0);
             }
         }
         
