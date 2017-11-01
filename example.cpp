@@ -26,7 +26,7 @@ public:
     {
         double dis;
         
-        return ultra_q.distance_inches();
+        return ultra_q.distance_centimeters();
         
     }
     
@@ -207,10 +207,13 @@ int main()
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
+        
+            for(int i = 0; i < 400; i += 10)
+            {
             crain.move_foot(i, 0);
             std::cout<< crain.position_foot() <<std::endl;
-            
-        }
+            }
+        
         sleep(2);
         crain.move_neck(200, 0);
         sleep(1);
@@ -226,7 +229,7 @@ int main()
         crain.move_hand(0, 0);
         
         
-        delete crain;
+       
         
         }
     }
