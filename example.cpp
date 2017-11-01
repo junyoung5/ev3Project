@@ -244,7 +244,7 @@ int main()
             {
                 
                 crain.stop_foot();
-                //position = 300 - crain.position_foot(); //get finish position
+                position = 500 - crain.position_foot(); //get finish position
                 std::cout<<"POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
