@@ -216,7 +216,8 @@ int main()
         for(int i = 0; i < 400; i += 10)
         {
         
-        dis = crain.get_distance();
+        dis = crain.get_distance()/100;
+        sleep(3/40);
         std::cout<< "DISTANCE: " << dis <<std::endl;
         crain.move_foot(i, 0);
         
