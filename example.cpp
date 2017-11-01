@@ -209,7 +209,7 @@ int main()
         { 
         // int scan = 1;
      
-        for(int i = 0; i < 600; i+= 10)
+        for(int i = 0; i < 400; i+= 10)
         {
             crain.move_foot(i, 0);
             std::cout<< crain.position_foot() <<std::endl;
