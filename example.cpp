@@ -214,17 +214,21 @@ int main()
         double dis;
         int position;
         
-        sleep(0.5);
-        dis = crain.get_distance();
-        std::cout<< "DISTANCE: " << dis <<std::endl;
+        
+        
             
         
         
         for(int i = 0; i < 600; i ++)
         {
+            
+            dis = crain.get_distance();
+            std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
+                
             crain.move_foot(i, 0);
             if(dis < 6)
             {
+                
                 crain.stop_foot();
                 position = 600 - crain.position_foot(); //get finish position
                 crain.move_neck(400, 0);
@@ -241,16 +245,20 @@ int main()
         
         for(int i = 0; i < 600; i ++)
         {
+           
+            
             crain.move_foot(i, 1);
-            crain.stop_foot();
-            position = 600 - crain.position_foot(); //get finish position
-            crain.move_neck(400, 0);
-            sleep(3);
-            crain.move_hand(180, 0);
-            sleep(3);
-            crain.move_neck(400, 1);
-            sleep(3);
-            crain.move_foot(position, 1);
+            if(dis < 6){
+                crain.stop_foot();
+                position = 600 - crain.position_foot(); //get finish position
+                crain.move_neck(400, 0);
+                sleep(3);
+                crain.move_hand(180, 0);
+                sleep(3);
+                crain.move_neck(400, 1);
+                sleep(3);
+                crain.move_foot(position, 1);
+            }
         }
         
         sleep(5);
