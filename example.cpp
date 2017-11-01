@@ -244,7 +244,7 @@ int main()
             {
                 
                 crain.stop_foot();
-                position = 500 - crain.position_foot(); //get finish position
+                position = 600 - crain.position_foot(); //get finish position
                 std::cout<<"POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
@@ -254,15 +254,19 @@ int main()
                 sleep(3);
                 crain.reset_foot();
                 crain.move_foot(position, 0);
+                sleep(3);
+                crain.move_neck(400,0);
+                sleep(3);
+                crain.move_hand(100, 1);
                 break;
             }
             
             
         }
         
-        sleep(20);
+        sleep(15);
         
-        for(int i = 0; i < 600; i ++)
+        for(int i = 0; i < 600; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
         {
            
             dis = crain.get_distance();
