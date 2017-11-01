@@ -208,11 +208,14 @@ int main()
         if(crain.get_touch_pressed()==true)
         { 
         // int scan = 1;
-        
+        int dis;
             for(int i = 0; i < 400; i += 10)
             {
+                
+            dis = crain.get_distance();
             crain.move_foot(i, 0);
             std::cout<< crain.position_foot() <<std::endl;
+            std::cout<< "distance: " <<dis << std::endl;
             }
         
         sleep(2);
