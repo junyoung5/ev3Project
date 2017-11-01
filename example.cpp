@@ -216,17 +216,17 @@ int main()
             std::cout<< crain.position_foot() <<std::endl;
             
             }
-        sleep(2);
+        sleep(3);
         
         crain.move_neck(400, 0);
         sleep(3);
         
-        crain.move_hand(250, 0);
-        sleep(2);
+        crain.move_hand(110, 0);
+        sleep(3);
         
         
         crain.move_neck(400, 1);
-        sleep(2);
+        sleep(3);
         
         
         crain.move_foot(400, 1);
@@ -236,9 +236,9 @@ int main()
         sleep(3);
         
         
-        crain.move_hand(70, 1);
+        crain.move_hand(35, 1);
         
-        sleep(1);
+        sleep(3);
         crain.move_neck(400, 1);
         
         
