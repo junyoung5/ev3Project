@@ -137,9 +137,23 @@ public:
     void stop_foot();
     void stop_neck();
     void stop_hand();
+    void reset_foot();
+    void reset_neck();
+    void reset_hand();
     int position_foot();
 };
-
+void Crain::reset_foot()
+{
+    c.reset();
+}
+void Crain::reset_neck()
+{
+    b.reset();
+}
+void Crain::reset_hand()
+{
+    a.reset();
+}
 void Crain::stop_foot()
 {
     c.set_speed_sp(0);
@@ -218,7 +232,7 @@ int main()
         
             
         
-        
+        crain.reset_foot();
         for(int i = 0; i < 600; i ++)
         {
             
@@ -238,7 +252,8 @@ int main()
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
-                //crain.move_foot(i, 0);
+                crain.reset_foot();
+                crain.move_foot(position, 0);
             }
             
         }
