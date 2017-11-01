@@ -238,8 +238,9 @@ int main()
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
-                //crain.move_foot(position, 0);
+                crain.move_foot(i, 0);
             }
+            
         }
         
         sleep(20);
