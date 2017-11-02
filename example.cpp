@@ -164,19 +164,22 @@ void Crain::reset_hand()
 }
 void Crain::stop_foot()
 {
-    c.set_speed_sp(0);
-    c.run_forever();
+    //c.set_speed_sp(0);
+    //c.run_forever();
+    c.set_stop_action("hold");
 }
 void Crain::stop_neck()
 {
-    b.set_speed_sp(0);
-    b.run_forever();
+    // b.set_speed_sp(0);
+    // b.run_forever();
+    b.set_stop_action("hold");
     
 }
 void Crain::stop_hand()
 {
-    a.set_speed_sp(0);
-    a.run_forever();
+    // a.set_speed_sp(0);
+    // a.run_forever();
+    a.set_stop_action("hold");
 }
 void Crain::move_foot(int pos, int flag)
 {
@@ -338,7 +341,7 @@ int main()
                 crain.reset_foot();
                 crain.move_foot(position, 0);
                 sleep(3);
-                crain.move_neck(350,0);
+                crain.move_neck(300,0);
                 sleep(3);
                 crain.move_hand(80, 1);
                 sleep(3);
