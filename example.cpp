@@ -341,7 +341,7 @@ int main()
                     sleep(3);
                     crain.move_hand(0, 0); //RELEASE
                     sleep(3);
-                    crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
+                    crain.move_foot(0, 0); //MOVE TO POSITION WHERE CATCH THE BALL
                 }
                 
                 
