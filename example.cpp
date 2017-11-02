@@ -144,6 +144,7 @@ public:
     void practice();
     void getbackAuto();
     bool is_over(int pos);
+    void checkfoot();
 };
 
 
@@ -215,7 +216,7 @@ void Crain::move_foot(int pos, int flag)
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
-    a.set_stop_action("hold");
+    
 }
 
 void Crain::move_neck(int pos, int flag)
@@ -252,6 +253,13 @@ int Crain::position_foot()
 }
 
 
+void Crain::checkfoot()
+{
+    c.set_position_sp(660);
+    c.set_speed_sp(500);
+    c.run_to_abs_pos();
+}
+
 int main()
 {     
     Crain crain;
@@ -267,8 +275,11 @@ int main()
             
             
             crain.reset_motors(); //reset all motors position to 0
+            crain.checkfoot();
             
             
+            
+            /*
             while(true)
             {
                 //DEBUGGING POSITION AND DISTANCE 
@@ -320,7 +331,7 @@ int main()
                 std::cout<< "ROUND>>>>>>>>>>>>>>>>>" << round << std::endl;
                 
             }
-            
+            */
             
             //GET BACK TO HOME
             // crain.getbackAuto();
