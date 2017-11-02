@@ -257,7 +257,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3;
-    int i = 10, max_foot = 600, max_neck = 70, max_hand = 65;
+    int i = 10, max_foot = 660, max_neck = 70, max_hand = 65;
    
     
     while(true){
@@ -303,7 +303,7 @@ int main()
                     sleep(slT);
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(slT);
-                    crain.move_hand(0, 0); //RELEASE
+                    crain.move_hand(-10, 0); //RELEASE
                     sleep(slT);
                     crain.move_neck(0, 0); //UP
                     sleep(slT);
