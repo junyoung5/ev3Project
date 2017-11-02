@@ -306,7 +306,7 @@ int main()
     Crain crain;
     double dis;
     int position;
-    int i = 5, max_foot = 660, max_neck = 210, max_hand = 130;
+    int i = 5, max_foot = 660, max_neck = 210, max_hand = 80;
     
     while(true){
         if(crain.get_touch_pressed() == true){
