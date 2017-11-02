@@ -72,7 +72,7 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 500;
     }
     
     virtual int get_speed_neck()
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 300;
+        return 500;
     }
 
     virtual void set_down(bool val)
@@ -306,7 +306,7 @@ int main()
 {     
     Crain crain;
     double dis;
-    int position;
+    int position, turn =0, slT = 3;
     int i = 5, max_foot = 660, max_neck = 210, max_hand = 150;
     
     while(true){
@@ -330,25 +330,25 @@ int main()
                 //sleep(2);
                 if(dis < 10)
                 {
-                    sleep(5);
+                    sleep(slT);
                     position = crain.position_foot();
                     std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
                     crain.move_neck(max_neck, 0);  //DOWN
-                    sleep(3);
+                    sleep(slT);
                     crain.move_hand(max_hand, 0);  //CATCH
-                    sleep(3);
+                    sleep(slT);
                     crain.move_neck(0, 0);  //UP
-                    sleep(3);
+                    sleep(slT);
                     crain.move_foot(max_foot, 0);  //FIND FINISH
-                    sleep(3);
+                    sleep(slT);
                     crain.move_neck(max_neck, 0);  //DOWN
-                    sleep(3);
+                    sleep(slT);
                     crain.move_hand(0, 0); //RELEASE
-                    sleep(3);
+                    sleep(slT);
                     crain.move_neck(0, 0); //UP
-                    sleep(3);
+                    sleep(slT);
                     crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
-                    sleep(10);
+                    sleep(slT);
                 }
                 
                 
