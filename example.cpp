@@ -284,10 +284,10 @@ int main()
                 std::cout<< "POSITION         :" << position <<std::endl;
                 
                 
-                if(crain.is_over(position) == true)
-                {
-                    crain.getbackAuto();
-                }
+                // if(crain.is_over(position) == true)
+                // {
+                //     crain.getbackAuto();
+                // }
                 
                
                 crain.move_foot(i, 0); //MOVE RIGHT
