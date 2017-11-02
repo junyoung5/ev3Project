@@ -300,7 +300,7 @@ void Crain::example_code()
 
 int Crain::position_foot()
 {
-    return c.position_sp();
+    return c.position_i();
 }
 int main()
 {     
@@ -343,7 +343,7 @@ int main()
                     sleep(3);
                     crain.move_neck(0, 0); //UP
                     sleep(3);
-                    crain.move_foot(0, 0); //MOVE TO POSITION WHERE CATCH THE BALL
+                    crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
                     sleep(10);
                 }
                 
