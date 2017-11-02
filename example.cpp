@@ -327,6 +327,8 @@ int main()
                 if(dis < 5)
                 {
                     position = crain.position_foot();
+                    std::cout<< "POSITION         :" << position <<std::endl;
+                    sleep(3);
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(3);
                     crain.move_hand(max_hand, 0);  //CATCH
