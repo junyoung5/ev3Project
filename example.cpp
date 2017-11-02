@@ -200,7 +200,7 @@ void Crain::move_foot(int pos, int flag)
    
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
-    b.set_stop_action("brake");
+    b.set_stop_action("coast");
     c.run_to_abs_pos();
     
 }
@@ -251,7 +251,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3, round = 1;
-    int i = 1, max_foot = 660, max_neck = 90, max_hand = 65;
+    int i = 1, max_foot = 660, max_neck = 130, max_hand = 65;
    
     
     while(crain.get_escape()==false){
@@ -287,7 +287,7 @@ int main()
                 
                 
                 //sleep(2);
-                if(dis < 10)
+                if(dis < 15)
                 {
                     sleep(slT);
                     position = crain.position_foot();
