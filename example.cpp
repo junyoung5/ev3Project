@@ -274,9 +274,9 @@ void Crain::example_code()
         
         if(get_right())
         {
-               b.set_speed_sp(-1* get_speed());
-               b.run_forever();
-               b.set_stop_action("hold");
+               a.set_speed_sp(-1* get_speed());
+               a.run_forever();
+               a.set_stop_action("hold");
         }
          
       
