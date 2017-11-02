@@ -138,30 +138,33 @@ public:
     void stop_foot();
     void stop_neck();
     void stop_hand();
-    void reset_foot();
-    void reset_neck();
-    void reset_hand();
+    void reset_motors();
     void zero_position_foot();
     int position_foot();
+    void practice();
 };
 
+void Crain::practice()
+{
+    c.set_speed_sp(100);
+    c.set_position_sp(0);
+    c.run_to_abs_pos();
+    sleep(1);
+    c.set_position_sp(660);
+    c.run_to_abs_pos();   
+}
 
 void Crain::zero_position_foot()
 {
     c.set_position(0);
 }
-void Crain::reset_foot()
-{
-    c.reset();
-}
-void Crain::reset_neck()
-{
-    b.reset();
-}
-void Crain::reset_hand()
+void Crain::reset_motors()
 {
     a.reset();
+    b.reset();
+    c.reset();
 }
+
 void Crain::stop_foot()
 {
     //c.set_speed_sp(0);
@@ -188,7 +191,7 @@ void Crain::move_foot(int pos, int flag)
     {
         pos *= -1;
     }
-    c.set_position(0);
+   
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
     b.set_stop_action("hold");
@@ -201,7 +204,7 @@ void Crain::move_neck(int pos, int flag)
     {
         pos *= -1;
     }
-    b.set_position(0);
+    
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
     b.set_stop_action("hold");
@@ -214,8 +217,8 @@ void Crain::move_hand(int pos, int flag)
     {
         pos *= -1;
     }
+    
     a.set_stop_action("hold");
-    a.set_position(0);
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed_hand());
     a.run_to_abs_pos();
@@ -290,9 +293,9 @@ void Crain::example_code()
         
     }
 
-    a.stop();
-    b.stop();
-    c.stop();
+    //a.stop();
+    //b.stop();
+    //c.stop();
 }
 
 int Crain::position_foot()
@@ -302,99 +305,23 @@ int Crain::position_foot()
 int main()
 {     
     Crain crain;
-    
-    while(true)
-    {
-        
-        if(crain.get_touch_pressed()==true)
-        { 
-           
-        while(true)
-        {
-        double dis;
-        int position;
-        
-        
-        
+    while(true){
+        if(crain.get_touch_pressed() == true){
             
-        
-        crain.reset_foot();
-        for(int i = 0; i < 500; i ++)
-        {
-            
-            dis = crain.get_distance();
-            std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
-                
-            crain.move_foot(i, 0);
-            if(dis < 6)
-            {
-                
-                crain.stop_foot();
-                position = 600 - crain.position_foot(); //get finish position
-                std::cout<<"POSITION:           "<<position<<std::endl;
-                crain.move_neck(350, 0);
-                sleep(3);
-                crain.move_hand(130, 0);
-                sleep(3);
-                crain.move_neck(400, 1);
-                sleep(3);
-                crain.reset_foot();
-                crain.move_foot(position, 0);
-                sleep(3);
-                crain.move_neck(300,0);
-                sleep(3);
-                crain.move_hand(80, 1);
-                sleep(3);
-                crain.move_neck(400,1);
-                break;
-            }
+            crain.reset_motors();
             
             
-        }
-        
-        sleep(5);
-        
-        position = crain.position_foot();
-       
-        crain.zero_position_foot();
-        crain.reset_foot();
-        std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
-        
-        
-        for(int i = 0; i < position; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
-        {
-           
-            dis = crain.get_distance();
-            std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
-            crain.move_foot(i, 1); //left
             
             
-            if(dis < 6){
-                crain.stop_foot();
-                position = 500 - crain.position_foot(); //get finish position
-                std::cout<<"LEFT POSITION:           "<<position<<std::endl;
-                crain.move_neck(400, 0);
-                sleep(3);
-                crain.move_hand(180, 0);
-                sleep(3);
-                crain.move_neck(400, 1);
-                sleep(3);
-                crain.move_foot(position, 0); //right
-                sleep(3);
-                crain.move_neck(400, 0);
-                sleep(3);
-                crain.move_hand(130, 1);
-                sleep(3);
-                crain.move_neck(400, 1);
-                
-                break;
-            }
-        }
-        
-        sleep(5);
-        
-        }
-        
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
     }
 }
