@@ -133,6 +133,7 @@ public:
 public:
     void example_code();
     void move_foot(int pos, int flag);
+    void move_foot_rfr();
     void move_neck(int pos, int flag);
     void move_hand(int pos, int flag);
     void stop_motors();
@@ -145,6 +146,14 @@ public:
     void checkfoot();
 };
 
+
+
+
+void Crain::move_foot_rfr()
+{
+    c.set_speed_sp(get_speed());
+    c.run_forever();
+}
 
 // 0~660 벗어났는지 확인
 bool Crain::is_over(int pos)
@@ -251,80 +260,43 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3, round = 1;
-    int i = 1, max_foot = 660, max_neck = 130, max_hand = 65;
-   
+    int i = 0, max_foot = 660, max_neck = 130, max_hand = 65;
+    int *objpos = new int[3];
     
-    while(crain.get_escape()==false){
+   
         
-        crain.set_escape(ev3dev::button::back.pressed());
-        
-        if(crain.get_touch_pressed() == true){
-            
-            
+        if(crain.get_touch_pressed() == true)
+        {
             
             crain.reset_motors(); //reset all motors position to 0
-          
             
             
+    
             
-           
-            while(true)
+            
+            while(position < 660)
             {
-                //DEBUGGING POSITION AND DISTANCE 
-                dis = crain.get_distance();
-                std::cout<<"DISTANCE1: "<< dis <<std::endl;
+                
                 position = crain.position_foot();
-                std::cout<< "POSITION         :" << position <<std::endl;
+                dis = crain.get_distance();    
                 
                 
-                if(crain.is_over(position) == true)
-                {
-                    crain.stop_motors();
-                }
-                
-               
-                crain.move_foot(i, 0); //MOVE RIGHT
-                
-                
-                //sleep(2);
                 if(dis < 15)
                 {
-                    sleep(slT);
-                    position = crain.position_foot();
-                    std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
-                    crain.move_neck(max_neck, 0);  //DOWN
-                    sleep(slT);
-                    crain.move_hand(max_hand, 0);  //CATCH
-                    sleep(slT);
-                    crain.move_neck(0, 0);  //UP
-                    sleep(slT);
-                    crain.move_foot(max_foot, 0);  //FIND FINISH
-                    sleep(slT);
-                    crain.move_neck(max_neck, 0);  //DOWN
-                    sleep(slT);
-                    crain.move_hand(-30, 0); //RELEASE
-                    sleep(slT);
-                    crain.move_neck(0, 0); //UP
-                    sleep(slT);
-                    crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
-                    sleep(slT);
+                    objpos[i] = position;
+                    i += i;
                 }
                 
-                
-                
-               
-                
-                i += 1;
-                
-                std::cout<< "ROUND>>>>>>>>>>>>>>>>>" << round << std::endl;
+                crain.move_foot_rfr();
                 
             }
+            
+            
+            
+            
            
             
-            //GET BACK TO HOME
-            // crain.getbackAuto();
             
-            
-        }
+        
     }
 }
