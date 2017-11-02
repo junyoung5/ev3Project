@@ -265,7 +265,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3, round = 1;
-    int i = 60, max_foot = 660, max_neck = 70, max_hand = 65;
+    int i = 10, max_foot = 660, max_neck = 70, max_hand = 65;
    
     
     while(true){
@@ -326,7 +326,7 @@ int main()
                 
                
                 
-                i += 60;
+                i += 10;
                 
                 std::cout<< "ROUND>>>>>>>>>>>>>>>>>" << round << std::endl;
                 
