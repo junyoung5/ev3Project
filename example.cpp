@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 400;
     }
     
     virtual int get_speed_neck()
     {
-        return 300;
+        return 400;
     }
     // virtual int  get_speed_foot()
     // {
@@ -257,7 +257,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3;
-    int i = 10, max_foot = 600, max_neck = 70, max_hand = 65;
+    int i = 10, max_foot = 600, max_neck = 150, max_hand = 65;
    
     
     while(true){
