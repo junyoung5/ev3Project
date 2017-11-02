@@ -329,74 +329,69 @@ int main()
     double dis;
     int position, turn =0, slT = 3;
     int i = 5, max_foot = 600, max_neck = 70, max_hand = 60;
+   
     
-    if(crain.get_touch_pressed() == true){
-        
-       
-        crain.getbackAuto();
-    }
-    
-    // while(true){
-    //     if(crain.get_touch_pressed() == true){
+    while(true){
+        if(crain.get_touch_pressed() == true){
             
-    //         crain.reset_motors();
+            crain.reset_motors();
             
             
-    //         while(turn < 2)
-    //         {
-    //             //DEBUGGING POSITION AND DISTANCE 
-    //             dis = crain.get_distance();
-    //             std::cout<<"DISTANCE1: "<< dis <<std::endl;
-    //             position = crain.position_foot();
-    //             std::cout<< "POSITION         :" << position <<std::endl;
+            while(turn < 2)
+            {
+                //DEBUGGING POSITION AND DISTANCE 
+                dis = crain.get_distance();
+                std::cout<<"DISTANCE1: "<< dis <<std::endl;
+                position = crain.position_foot();
+                std::cout<< "POSITION         :" << position <<std::endl;
                 
                 
-    //             crain.move_foot(i, 0); //MOVE RIGHT
+                crain.move_foot(i, 0); //MOVE RIGHT
                 
                 
-    //             //sleep(2);
-    //             if(dis < 10)
-    //             {
-    //                 sleep(slT);
-    //                 position = crain.position_foot();
-    //                 std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
-    //                 crain.move_neck(max_neck, 0);  //DOWN
-    //                 sleep(slT);
-    //                 crain.move_hand(max_hand, 0);  //CATCH
-    //                 sleep(slT);
-    //                 crain.move_neck(0, 0);  //UP
-    //                 sleep(slT);
-    //                 crain.move_foot(max_foot, 0);  //FIND FINISH
-    //                 sleep(slT);
-    //                 crain.move_neck(max_neck, 0);  //DOWN
-    //                 sleep(slT);
-    //                 crain.move_hand(0, 0); //RELEASE
-    //                 sleep(slT);
-    //                 crain.move_neck(0, 0); //UP
-    //                 sleep(slT);
-    //                 crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
-    //                 sleep(slT);
-    //             }
+                //sleep(2);
+                if(dis < 10)
+                {
+                    sleep(slT);
+                    position = crain.position_foot();
+                    std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
+                    crain.move_neck(max_neck, 0);  //DOWN
+                    sleep(slT);
+                    crain.move_hand(max_hand, 0);  //CATCH
+                    sleep(slT);
+                    crain.move_neck(0, 0);  //UP
+                    sleep(slT);
+                    crain.move_foot(max_foot, 0);  //FIND FINISH
+                    sleep(slT);
+                    crain.move_neck(max_neck, 0);  //DOWN
+                    sleep(slT);
+                    crain.move_hand(0, 0); //RELEASE
+                    sleep(slT);
+                    crain.move_neck(0, 0); //UP
+                    sleep(slT);
+                    crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
+                    sleep(slT);
+                }
                 
                 
                 
                
                 
-    //             i += 5;
-    //             turn += 1;
-    //         }
+                i += 10;
+                turn += 1;
+            }
             
             
-    //         //GET BACK TO HOME
-    //         crain.getbackAuto();
-            
-            
-            
+            //GET BACK TO HOME
+            crain.getbackAuto();
             
             
             
             
             
-    //     }
-    // }
+            
+            
+            
+        }
+    }
 }
