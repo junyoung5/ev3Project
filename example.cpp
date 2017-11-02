@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 100;
+        return 200;
     }
     
     virtual int get_speed_neck()
     {
-        return 100;
+        return 200;
     }
     // virtual int  get_speed_foot()
     // {
@@ -188,6 +188,7 @@ void Crain::move_foot(int pos, int flag)
     c.set_position(0);
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
+    a.set_speed_sp(get_speed_hand());
     c.run_to_abs_pos();
 }
 
@@ -200,6 +201,7 @@ void Crain::move_neck(int pos, int flag)
     b.set_position(0);
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
+    a.set_speed_sp(get_speed_hand());
     b.run_to_abs_pos();
 }
 
@@ -303,92 +305,92 @@ int main()
         
         if(crain.get_touch_pressed()==true)
         { 
-        crain.example_code();        
-        //while(true)
-        //{
-        // double dis;
-        // int position;
-        
-        
-        
-            
-        
-        // crain.reset_foot();
-        // for(int i = 0; i < 600; i ++)
-        // {
-            
-        //     dis = crain.get_distance();
-        //     std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
-                
-        //     crain.move_foot(i, 0);
-        //     if(dis < 6)
-        //     {
-                
-        //         crain.stop_foot();
-        //         position = 600 - crain.position_foot(); //get finish position
-        //         std::cout<<"POSITION:           "<<position<<std::endl;
-        //         crain.move_neck(400, 0);
-        //         sleep(3);
-        //         crain.move_hand(180, 0);
-        //         sleep(3);
-        //         crain.move_neck(400, 1);
-        //         sleep(3);
-        //         crain.reset_foot();
-        //         crain.move_foot(position, 0);
-        //         sleep(3);
-        //         crain.move_neck(400,0);
-        //         sleep(3);
-        //         crain.move_hand(100, 1);
-        //         sleep(3);
-        //         crain.move_neck(400,1);
-        //         break;
-        //     }
-            
-            
-        // }
-        
-        // sleep(5);
-        
-        // position = crain.position_foot();
-       
-        // crain.zero_position_foot();
-        // crain.reset_foot();
-        // std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
-        
-        
-        // for(int i = 0; i < position; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
-        // {
            
-        //     dis = crain.get_distance();
-        //     std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
-        //     crain.move_foot(i, 1); //left
+        while(true)
+        {
+        double dis;
+        int position;
+        
+        
+        
             
+        
+        crain.reset_foot();
+        for(int i = 0; i < 600; i ++)
+        {
             
-        //     if(dis < 6){
-        //         crain.stop_foot();
-        //         position = 600 - crain.position_foot(); //get finish position
-        //         std::cout<<"LEFT POSITION:           "<<position<<std::endl;
-        //         crain.move_neck(400, 0);
-        //         sleep(3);
-        //         crain.move_hand(180, 0);
-        //         sleep(3);
-        //         crain.move_neck(400, 1);
-        //         sleep(3);
-        //         crain.move_foot(position, 0); //right
-        //         sleep(3);
-        //         crain.move_neck(400, 0);
-        //         sleep(3);
-        //         crain.move_hand(130, 1);
-        //         sleep(3);
-        //         crain.move_neck(400, 1);
+            dis = crain.get_distance();
+            std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
                 
-        //         break;
-        //     }
-        // }
+            crain.move_foot(i, 0);
+            if(dis < 6)
+            {
+                
+                crain.stop_foot();
+                position = 600 - crain.position_foot(); //get finish position
+                std::cout<<"POSITION:           "<<position<<std::endl;
+                crain.move_neck(400, 0);
+                sleep(3);
+                crain.move_hand(100, 0);
+                sleep(3);
+                crain.move_neck(400, 1);
+                sleep(3);
+                crain.reset_foot();
+                crain.move_foot(position, 0);
+                sleep(3);
+                crain.move_neck(400,0);
+                sleep(3);
+                crain.move_hand(100, 1);
+                sleep(3);
+                crain.move_neck(400,1);
+                break;
+            }
+            
+            
+        }
         
-        // sleep(5);
+        sleep(5);
         
-        // }
+        position = crain.position_foot();
+       
+        crain.zero_position_foot();
+        crain.reset_foot();
+        std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
+        
+        
+        for(int i = 0; i < position; i ++) //600을 하면 왼쪽으로 너무 많이 넘어감. 조절필요. 
+        {
+           
+            dis = crain.get_distance();
+            std::cout<< "DISTANCE: " << dis <<std::endl; //get distance
+            crain.move_foot(i, 1); //left
+            
+            
+            if(dis < 6){
+                crain.stop_foot();
+                position = 600 - crain.position_foot(); //get finish position
+                std::cout<<"LEFT POSITION:           "<<position<<std::endl;
+                crain.move_neck(400, 0);
+                sleep(3);
+                crain.move_hand(180, 0);
+                sleep(3);
+                crain.move_neck(400, 1);
+                sleep(3);
+                crain.move_foot(position, 0); //right
+                sleep(3);
+                crain.move_neck(400, 0);
+                sleep(3);
+                crain.move_hand(130, 1);
+                sleep(3);
+                crain.move_neck(400, 1);
+                
+                break;
+            }
+        }
+        
+        sleep(5);
+        
+        }
         
         }
     }
