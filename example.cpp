@@ -132,10 +132,10 @@ public:
     
 public:
     void example_code();
-    void move_foot(int pos, int flag);
+    void move_foot(int pos);
     void move_foot_rfr();
-    void move_neck(int pos, int flag);
-    void move_hand(int pos, int flag);
+    void move_neck(int pos);
+    void move_hand(int pos);
     void stop_motors();
     void reset_motors();
     void zero_position_foot();
@@ -199,42 +199,27 @@ void Crain::stop_motors()
    b.stop();
    c.stop();
 }
-void Crain::move_foot(int pos, int flag)
+void Crain::move_foot(int pos)
 {
   
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
-   
+    
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
-    b.set_stop_action("coast");
     c.run_to_abs_pos();
     
 }
 
-void Crain::move_neck(int pos, int flag)
+void Crain::move_neck(int pos)
 {
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
     
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
-    //b.set_stop_action("hold");
     b.run_to_abs_pos();
 }
 
-void Crain::move_hand(int pos, int flag)
+void Crain::move_hand(int pos)
 {
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
-    
-    a.set_stop_action("hold");
+  
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed_hand());
     a.run_to_abs_pos();
@@ -259,7 +244,7 @@ int main()
 {     
     Crain crain;
     double dis, position;
-    int turn =0, slT = 3, round = 1;
+    int turn =0, slT = 3, round = 1, objectPosition = 0;
     int i = 0, max_foot = 660, max_neck = 130, max_hand = 65;
     int *objpos = new int[3];
     
@@ -279,7 +264,7 @@ int main()
                 
                 position = crain.position_foot();
                 dis = crain.get_distance();    
-                
+                std::cout<<"DISTANCE: " <<dis << std::endl;
                 
                 if(dis < 15)
                 {
@@ -290,7 +275,37 @@ int main()
                 crain.move_foot_rfr();
                 
             }
+            sleep(slT);
             
+            
+            
+            for(int i = 2; i >= 0; i--)
+            {
+                objectPosition = objpos[i];
+                crain.move_foot(objectPosition);
+                sleep(slT);
+                
+                crain.move_neck(max_neck);
+                sleep(slT);
+                
+                crain.move_hand(max_hand);
+                sleep(1);
+                
+                crain.move_neck(0);
+                sleep(slT);
+                
+                crain.move_foot(max_foot);
+                sleep(slT);
+                
+                crain.move_neck(max_neck);
+                sleep(slT);
+                
+                crain.move_hand(0);
+                sleep(1);
+                
+                crain.move_neck(0);
+                sleep(slT);
+            }
             
             
             
