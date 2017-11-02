@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 600;
+        return 800;
     }
     
     virtual int get_speed_neck()
     {
-        return 700;
+        return 800;
     }
     // virtual int  get_speed_foot()
     // {
@@ -257,15 +257,14 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 2;
-    int i = 10, max_foot = 650, max_neck = 200, max_hand = 90;
+    int i = 10, max_foot = 650, max_neck = 170, max_hand = 90;
    
     
-    while(true){
+    while(true)
+    {
         
-        if(crain.get_touch_pressed() == true){
-            
-            
-            
+        if(crain.get_touch_pressed() == true)
+        {
             crain.reset_motors(); //reset all motors position to 0
             
             
@@ -293,6 +292,8 @@ int main()
             crain.stop_foot_rfr();
             sleep(slT);
             
+            crain.move_foot(position-60);
+            sleep(0.5);
             crain.move_neck(max_neck);
             sleep(2.5);
             crain.move_hand(max_hand);
@@ -309,76 +310,7 @@ int main()
             sleep(slT);
             crain.move_foot(200);
             sleep(slT);
-        
-            
-            
-        }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            // while(true)
-            // {
-            //     //DEBUGGING POSITION AND DISTANCE 
-            //     dis = crain.get_distance();
-            //     std::cout<<"DISTANCE1: "<< dis <<std::endl;
-            //     position = crain.position_foot();
-            //     std::cout<< "POSITION         :" << position <<std::endl;
-                
-                
-            //     // if(crain.is_over(position) == true)
-            //     // {
-            //     //     crain.getbackAuto();
-            //     // }
-                
-               
-            //     crain.move_foot(i, 0); //MOVE RIGHT
-            //     crain.c.stop();
-                
-            //     //sleep(2);
-            //     if(dis < 10)
-            //     {
-            //         sleep(slT);
-            //         position = crain.position_foot();
-            //         std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
-            //         crain.move_neck(max_neck, 0);  //DOWN
-            //         sleep(slT);
-            //         crain.move_hand(max_hand, 0);  //CATCH
-            //         sleep(slT);
-            //         crain.move_neck(0, 0);  //UP
-            //         sleep(slT);
-            //         crain.move_foot(max_foot, 0);  //FIND FINISH
-            //         sleep(slT);
-            //         crain.move_neck(max_neck, 0);  //DOWN
-            //         sleep(slT);
-            //         crain.move_hand(0, 0); //RELEASE
-            //         sleep(slT);
-            //         crain.move_neck(0, 0); //UP
-            //         sleep(slT);
-            //         crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
-            //         sleep(slT);
-            //     }
-                
-                
-                
-               
-                
-            //     i += 10;
-                
-            // }
-            
-            
-            // //GET BACK TO HOME
-            // crain.getbackAuto();
+            }
             
             
         }
