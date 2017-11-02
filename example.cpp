@@ -338,14 +338,13 @@ int main()
                     crain.move_neck(max_neck, 1);  //DOWN
                     sleep(3);
                     crain.move_hand(max_hand, 1); //RELEASE
+                    sleep(3);
+                    crain.move_foot(position, 1); //MOVE TO POSITION WHERE CATCH THE BALL
                 }
                 
                 
                 
-                dis = crain.get_distance();
-                std::cout<<"DISTANCE2: "<< dis <<std::endl;
-                
-                crain.move_foot(position, 1); //MOVE LEFT
+               
                 
                 i += 5;
             }
