@@ -309,7 +309,7 @@ int main()
     Crain crain;
     double dis;
     int position, turn =0, slT = 3;
-    int i = 5, max_foot = 600, max_neck = 70, max_hand = 150;
+    int i = 5, max_foot = 600, max_neck = 70, max_hand = 60;
     
     while(true){
         if(crain.get_touch_pressed() == true){
@@ -317,7 +317,7 @@ int main()
             crain.reset_motors();
             
             
-            while(true)
+            while(turn < 2)
             {
                 //DEBUGGING POSITION AND DISTANCE 
                 dis = crain.get_distance();
@@ -358,10 +358,14 @@ int main()
                
                 
                 i += 5;
+                turn += 1;
             }
             
             
-            
+            //GET BACK TO HOME
+            crain.move_foot(0, 0);
+            crain.move_neck(0, 0);
+            crain.move_hand(0, 0);
             
             
             
