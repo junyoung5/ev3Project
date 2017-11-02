@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 100;
+        return 200;
     }
     
     virtual int get_speed_neck()
     {
-        return 100;
+        return 300;
     }
     // virtual int  get_speed_foot()
     // {
@@ -343,7 +343,7 @@ int main()
                     sleep(3);
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(3);
-                    crain.move_hand(-50, 0); //RELEASE
+                    crain.move_hand(0, 0); //RELEASE
                     sleep(3);
                     crain.move_neck(0, 0); //UP
                     sleep(3);
