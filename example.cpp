@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 400;
+        return 100;
     }
     
     virtual int get_speed_neck()
     {
-        return 500;
+        return 300;
     }
     // virtual int  get_speed_foot()
     // {
