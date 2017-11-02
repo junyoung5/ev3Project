@@ -302,7 +302,7 @@ int main()
                     sleep(slT);
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(slT);
-                    crain.move_hand(-10, 0); //RELEASE
+                    crain.move_hand(-30, 0); //RELEASE
                     sleep(slT);
                     crain.move_neck(0, 0); //UP
                     sleep(slT);
