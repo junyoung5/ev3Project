@@ -332,7 +332,7 @@ int main()
     
     if(crain.get_touch_pressed() == true){
         
-        crain.reset_motors();    
+       
         crain.getbackAuto();
     }
     
