@@ -268,7 +268,9 @@ int main()
     int i = 10, max_foot = 660, max_neck = 70, max_hand = 65;
    
     
-    while(true){
+    while(crain.get_escape()==false){
+        
+        crain.set_escape(ev3dev::button::back.pressed());
         
         if(crain.get_touch_pressed() == true){
             
