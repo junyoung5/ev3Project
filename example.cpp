@@ -161,12 +161,12 @@ void Crain::getbackAuto()
     a.set_speed_sp(200);
     a.set_position_sp(0);
     a.run_to_abs_pos();
-    sleep(3);
+    sleep(1);
     
     b.set_speed_sp(200);
     b.set_position_sp(0);
     b.run_to_abs_pos();
-    sleep(3);
+    sleep(1);
     
     c.set_speed_sp(200);
     c.set_position_sp(0);
