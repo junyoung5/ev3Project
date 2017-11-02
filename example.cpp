@@ -151,7 +151,7 @@ void Crain::zero_position_foot()
 }
 void Crain::reset_foot()
 {
-    c.reset();
+    c.set_command("reset");
 }
 void Crain::reset_neck()
 {
@@ -278,6 +278,7 @@ int main()
         position = crain.position_foot();
        
         crain.zero_position_foot();
+        crain.reset_foot();
         std::cout<< "CHECK POSITION after RESET: " << position  <<std::endl; //get distance
         
         
