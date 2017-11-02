@@ -317,18 +317,22 @@ int main()
             
             while(true)
             {
+                //DEBUGGING POSITION AND DISTANCE 
                 dis = crain.get_distance();
                 std::cout<<"DISTANCE1: "<< dis <<std::endl;
+                position = crain.position_foot();
+                std::cout<< "POSITION         :" << position <<std::endl;
+                
                 
                 crain.move_foot(i, 0); //MOVE RIGHT
                 
                 
                 //sleep(2);
-                if(dis < 5)
+                if(dis < 10)
                 {
-                    sleep(3);
+                    sleep(5);
                     position = crain.position_foot();
-                    std::cout<< "POSITION         :" << position <<std::endl;
+                    std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(3);
                     crain.move_hand(max_hand, 0);  //CATCH
