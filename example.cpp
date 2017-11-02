@@ -316,7 +316,7 @@ int main()
             
         
         crain.reset_foot();
-        for(int i = 0; i < 600; i ++)
+        for(int i = 0; i < 500; i ++)
         {
             
             dis = crain.get_distance();
@@ -329,16 +329,16 @@ int main()
                 crain.stop_foot();
                 position = 600 - crain.position_foot(); //get finish position
                 std::cout<<"POSITION:           "<<position<<std::endl;
-                crain.move_neck(400, 0);
+                crain.move_neck(350, 0);
                 sleep(3);
-                crain.move_hand(80, 0);
+                crain.move_hand(130, 0);
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
                 crain.reset_foot();
                 crain.move_foot(position, 0);
                 sleep(3);
-                crain.move_neck(400,0);
+                crain.move_neck(350,0);
                 sleep(3);
                 crain.move_hand(80, 1);
                 sleep(3);
@@ -368,7 +368,7 @@ int main()
             
             if(dis < 6){
                 crain.stop_foot();
-                position = 600 - crain.position_foot(); //get finish position
+                position = 500 - crain.position_foot(); //get finish position
                 std::cout<<"LEFT POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
