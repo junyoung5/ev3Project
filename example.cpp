@@ -72,7 +72,7 @@ public:
     
     virtual int get_speed()
     {
-        return 150;
+        return 200;
     }
     
     virtual int get_speed_neck()
@@ -134,9 +134,9 @@ public:
     void example_code();
     void move_foot_rfr();
     void stop_foot_rfr();
-    void move_foot(int pos, int flag);
-    void move_neck(int pos, int flag);
-    void move_hand(int pos, int flag);
+    void move_foot(int pos);
+    void move_neck(int pos);
+    void move_hand(int pos);
     void stop_foot();
     void stop_neck();
     void stop_hand();
@@ -150,7 +150,7 @@ public:
 
 void Crain::move_foot_rfr()
 {
-    c.set_speed_sp(get_speed());
+    c.set_speed_sp(100);
     c.run_forever();
 
 }
@@ -218,41 +218,28 @@ void Crain::stop_hand()
     // a.run_forever();
     a.set_stop_action("hold");
 }
-void Crain::move_foot(int pos, int flag)
+void Crain::move_foot(int pos)
 {
   
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
-   
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
-    a.set_stop_action("hold");
+   
 }
 
-void Crain::move_neck(int pos, int flag)
+void Crain::move_neck(int pos)
 {
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
+
     
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
-    //b.set_stop_action("hold");
     b.run_to_abs_pos();
 }
 
-void Crain::move_hand(int pos, int flag)
+void Crain::move_hand(int pos)
 {
-    if (flag == 1)
-    {
-        pos *= -1;
-    }
-    
-    a.set_stop_action("hold");
+   
+   
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed_hand());
     a.run_to_abs_pos();
@@ -282,23 +269,47 @@ int main()
             crain.reset_motors(); //reset all motors position to 0
             
             
+        for(int z = 0; z < 3; z++)
+        {
             
             while(true)
             {
                 dis = crain.get_distance();
                 std::cout<<"DISTANCE1: "<< dis <<std::endl;
-                position = crain.position_foot();
-                std::cout<< "POSITION         :" << position <<std::endl;
+                //position = crain.position_foot();
+                //std::cout<< "POSITION         :" << position <<std::endl;
                 
                 
                 crain.move_foot_rfr();
-                if(dis < 12)
+                if(dis < 15)
                 {
+                    position = crain.position_foot();
+                    std::cout<< "POSITION         :" << position <<std::endl;
                     break;
                 }
                 
             }
             crain.stop_foot_rfr();
+            sleep(slT);
+            
+            crain.move_neck(max_neck);
+            sleep(slT);
+            crain.move_hand(max_hand);
+            sleep(slT);
+            crain.move_neck(0);
+            sleep(slT);
+            crain.move_foot(max_foot);
+            sleep(slT);
+            crain.move_neck(max_neck);
+            sleep(slT);
+            crain.move_hand(0);
+            sleep(slT);
+            crain.move_neck(0);
+            sleep(slT);
+            crain.move_foot(position);
+            
+            
+        }
             
             
             
