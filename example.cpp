@@ -150,7 +150,7 @@ public:
 
 void Crain::move_foot_rfr()
 {
-    c.set_speed_sp(100);
+    c.set_speed_sp(200);
     c.run_forever();
 
 }
@@ -256,7 +256,7 @@ int main()
 {     
     Crain crain;
     double dis, position;
-    int turn =0, slT = 1.7;
+    int turn =0, slT = 2;
     int i = 10, max_foot = 660, max_neck = 205, max_hand = 70;
    
     
