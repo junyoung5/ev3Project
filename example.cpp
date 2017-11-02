@@ -313,7 +313,7 @@ int main()
                 
                
                 
-                i += 1;
+                i += 10;
                 
                 std::cout<< "ROUND>>>>>>>>>>>>>>>>>" << round << std::endl;
                 
