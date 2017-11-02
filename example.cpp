@@ -195,6 +195,7 @@ void Crain::move_foot(int pos, int flag)
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
     c.run_to_abs_pos();
+    a.set_stop_action("hold");
 }
 
 void Crain::move_neck(int pos, int flag)
