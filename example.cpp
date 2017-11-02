@@ -265,14 +265,13 @@ int Crain::position_foot()
     return c.position();
 }
 
-
 int main()
 {     
     Crain crain;
     double dis, position;
     int turn =0, slT = 3;
-    int i = 0, max_foot = 600, max_neck = 70, max_hand = 65;
-    int *objpos = new int[1000];
+    int i = 10, max_foot = 600, max_neck = 70, max_hand = 65;
+   
     
     while(true){
         
@@ -283,9 +282,9 @@ int main()
             crain.reset_motors(); //reset all motors position to 0
             
             
-            while(position < 660)
+            
+            while(true)
             {
-                //DEBUGGING POSITION AND DISTANCE 
                 dis = crain.get_distance();
                 std::cout<<"DISTANCE1: "<< dis <<std::endl;
                 position = crain.position_foot();
@@ -293,21 +292,81 @@ int main()
                 
                 
                 crain.move_foot_rfr();
-                
-                if( dis < 15)
+                if(dis < 12)
                 {
-                    objpos[i] = position;
-                    i += 1; 
+                    break;
                 }
+                
             }
             crain.stop_foot_rfr();
             
-            for(int i = 0; i < 500; i++)
-            {
-                std::cout<< i << "::::" << objpos[i] << std::endl;
-            }
             
-        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            // while(true)
+            // {
+            //     //DEBUGGING POSITION AND DISTANCE 
+            //     dis = crain.get_distance();
+            //     std::cout<<"DISTANCE1: "<< dis <<std::endl;
+            //     position = crain.position_foot();
+            //     std::cout<< "POSITION         :" << position <<std::endl;
+                
+                
+            //     // if(crain.is_over(position) == true)
+            //     // {
+            //     //     crain.getbackAuto();
+            //     // }
+                
+               
+            //     crain.move_foot(i, 0); //MOVE RIGHT
+            //     crain.c.stop();
+                
+            //     //sleep(2);
+            //     if(dis < 10)
+            //     {
+            //         sleep(slT);
+            //         position = crain.position_foot();
+            //         std::cout<< "POSITION AFTER SENSOR GOT IT :" << position <<std::endl;
+            //         crain.move_neck(max_neck, 0);  //DOWN
+            //         sleep(slT);
+            //         crain.move_hand(max_hand, 0);  //CATCH
+            //         sleep(slT);
+            //         crain.move_neck(0, 0);  //UP
+            //         sleep(slT);
+            //         crain.move_foot(max_foot, 0);  //FIND FINISH
+            //         sleep(slT);
+            //         crain.move_neck(max_neck, 0);  //DOWN
+            //         sleep(slT);
+            //         crain.move_hand(0, 0); //RELEASE
+            //         sleep(slT);
+            //         crain.move_neck(0, 0); //UP
+            //         sleep(slT);
+            //         crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
+            //         sleep(slT);
+            //     }
+                
+                
+                
+               
+                
+            //     i += 10;
+                
+            // }
+            
+            
+            // //GET BACK TO HOME
+            // crain.getbackAuto();
+            
+            
         }
     }
 }
