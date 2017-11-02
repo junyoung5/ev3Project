@@ -72,7 +72,7 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 150;
     }
     
     virtual int get_speed_neck()
@@ -281,7 +281,13 @@ int main()
             
             for(int i = 2; i >= 0; i--)
             {
+                
+                
+                
                 objectPosition = objpos[i];
+                
+                std::cout<< "objectPosition:        " << objectPosition << std::endl;
+                
                 crain.move_foot(objectPosition);
                 sleep(slT);
                 
