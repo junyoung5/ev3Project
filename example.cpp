@@ -283,7 +283,7 @@ int main()
             crain.reset_motors(); //reset all motors position to 0
             
             
-            while(position < 300)
+            while(position < 660)
             {
                 //DEBUGGING POSITION AND DISTANCE 
                 dis = crain.get_distance();
@@ -301,15 +301,13 @@ int main()
                 }
             }
             crain.stop_foot_rfr();
-        
-                
-             
-                
-                
-                
-               
-       
             
+            for(int i = 0; i < 500; i++)
+            {
+                std::cout<< i << "::::" << objpos[i] << std::endl;
+            }
+            
+        
         }
     }
 }
