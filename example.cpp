@@ -252,9 +252,9 @@ void Crain::example_code()
         //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
         if(get_up()) // 
         {   
-                a.set_speed_sp(-1*get_speed());
-                a.run_forever();
-                a.set_stop_action("hold");
+                b.set_speed_sp(-1*get_speed());
+                b.run_forever();
+                
         } 
         
       
@@ -274,8 +274,9 @@ void Crain::example_code()
         
         if(get_right())
         {
-               c.set_speed_sp(-1* get_speed());
-               c.run_forever();
+               b.set_speed_sp(-1* get_speed());
+               b.run_forever();
+               b.set_stop_action("hold");
         }
          
       
