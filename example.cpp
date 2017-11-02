@@ -135,9 +135,7 @@ public:
     void move_foot(int pos, int flag);
     void move_neck(int pos, int flag);
     void move_hand(int pos, int flag);
-    void stop_foot();
-    void stop_neck();
-    void stop_hand();
+    void stop_motors();
     void reset_motors();
     void zero_position_foot();
     int position_foot();
@@ -186,24 +184,11 @@ void Crain::reset_motors()
     c.reset();
 }
 
-void Crain::stop_foot()
+void Crain::stop_motors()
 {
-    //c.set_speed_sp(0);
-    //c.run_forever();
-    c.set_stop_action("hold");
-}
-void Crain::stop_neck()
-{
-    // b.set_speed_sp(0);
-    // b.run_forever();
-    b.set_stop_action("hold");
-    
-}
-void Crain::stop_hand()
-{
-    // a.set_speed_sp(0);
-    // a.run_forever();
-    a.set_stop_action("hold");
+   a.stop();
+   b.stop();
+   c.stop();
 }
 void Crain::move_foot(int pos, int flag)
 {
@@ -291,10 +276,10 @@ int main()
                 std::cout<< "POSITION         :" << position <<std::endl;
                 
                 
-                // if(crain.is_over(position) == true)
-                // {
-                //     crain.getbackAuto();
-                // }
+                if(crain.is_over(position) == true)
+                {
+                    crain.stop_motors();
+                }
                 
                
                 crain.move_foot(i, 0); //MOVE RIGHT
