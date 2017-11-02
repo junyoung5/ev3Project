@@ -257,7 +257,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 1;
-    int i = 10, max_foot = 600, max_neck = 150, max_hand = 65;
+    int i = 10, max_foot = 600, max_neck = 150, max_hand = 100;
    
     
     while(true){
@@ -272,6 +272,7 @@ int main()
         for(int z = 0; z < 3; z++)
         {
             
+            //scan
             while(true)
             {
                 dis = crain.get_distance();
@@ -306,7 +307,9 @@ int main()
             sleep(slT);
             crain.move_neck(0);
             sleep(slT);
-            crain.move_foot(position);
+            crain.move_foot(200);
+            sleep(slT);
+        
             
             
         }
