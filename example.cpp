@@ -328,7 +328,7 @@ int main()
     Crain crain;
     double dis;
     int position, turn =0, slT = 3;
-    int i = 5, max_foot = 600, max_neck = 70, max_hand = 60;
+    int i = 5, max_foot = 600, max_neck = 70, max_hand = 65;
    
     
     while(true){
@@ -337,7 +337,7 @@ int main()
             crain.reset_motors();
             
             
-            while(turn < 2)
+            while(true)
             {
                 //DEBUGGING POSITION AND DISTANCE 
                 dis = crain.get_distance();
@@ -378,7 +378,7 @@ int main()
                
                 
                 i += 10;
-                turn += 1;
+                
             }
             
             
