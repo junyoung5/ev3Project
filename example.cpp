@@ -256,8 +256,8 @@ int main()
 {     
     Crain crain;
     double dis, position;
-    int turn =0, slT = 1;
-    int i = 10, max_foot = 600, max_neck = 150, max_hand = 100;
+    int turn =0, slT = 2;
+    int i = 10, max_foot = 650, max_neck = 250, max_hand = 60;
    
     
     while(true){
