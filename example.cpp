@@ -265,7 +265,7 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3, round = 1;
-    int i = 0, max_foot = 660, max_neck = 70, max_hand = 65;
+    int i = 60, max_foot = 660, max_neck = 70, max_hand = 65;
    
     
     while(true){
@@ -275,11 +275,11 @@ int main()
             
             
             crain.reset_motors(); //reset all motors position to 0
-            crain.checkfoot();
+          
             
             
             
-            /*
+           
             while(true)
             {
                 //DEBUGGING POSITION AND DISTANCE 
@@ -326,12 +326,12 @@ int main()
                 
                
                 
-                i += 1;
+                i += 60;
                 
                 std::cout<< "ROUND>>>>>>>>>>>>>>>>>" << round << std::endl;
                 
             }
-            */
+           
             
             //GET BACK TO HOME
             // crain.getbackAuto();
