@@ -294,7 +294,7 @@ int main()
             sleep(slT);
             
             crain.move_neck(max_neck);
-            sleep(slT);
+            sleep(3);
             crain.move_hand(max_hand);
             sleep(slT);
             crain.move_neck(0);
@@ -302,7 +302,7 @@ int main()
             crain.move_foot(max_foot);
             sleep(slT);
             crain.move_neck(max_neck);
-            sleep(slT);
+            sleep(3);
             crain.move_hand(0);
             sleep(slT);
             crain.move_neck(0);
