@@ -151,7 +151,7 @@ void Crain::zero_position_foot()
 }
 void Crain::reset_foot()
 {
-    c.set_command("reset");
+    c.reset();
 }
 void Crain::reset_neck()
 {
@@ -208,10 +208,10 @@ void Crain::move_hand(int pos, int flag)
     {
         pos *= -1;
     }
+    a.set_stop_action("hold");
     a.set_position(0);
     a.set_position_sp(pos);
     a.set_speed_sp(get_speed_hand());
-    a.set_stop_action("hold");
     a.run_to_abs_pos();
     
 }
