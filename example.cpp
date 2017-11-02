@@ -331,15 +331,15 @@ int main()
                     sleep(3);
                     crain.move_hand(max_hand, 0);  //CATCH
                     sleep(3);
-                    crain.move_neck(max_neck, 1);  //UP
+                    crain.move_neck(0, 0);  //UP
                     sleep(3);
                     crain.move_foot(max_foot, 0);  //FIND FINISH
                     sleep(3);
-                    crain.move_neck(max_neck, 1);  //DOWN
+                    crain.move_neck(max_neck, 0);  //DOWN
                     sleep(3);
-                    crain.move_hand(max_hand, 1); //RELEASE
+                    crain.move_hand(0, 0); //RELEASE
                     sleep(3);
-                    crain.move_foot(position, 1); //MOVE TO POSITION WHERE CATCH THE BALL
+                    crain.move_foot(position, 0); //MOVE TO POSITION WHERE CATCH THE BALL
                 }
                 
                 
