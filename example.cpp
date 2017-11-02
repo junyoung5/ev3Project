@@ -330,7 +330,11 @@ int main()
     int position, turn =0, slT = 3;
     int i = 5, max_foot = 600, max_neck = 70, max_hand = 60;
     
-    crain.getbackAuto();
+    if(crain.get_touch_pressed() == true){
+        
+        crain.reset_motors();    
+        crain.getbackAuto();
+    }
     
     // while(true){
     //     if(crain.get_touch_pressed() == true){
