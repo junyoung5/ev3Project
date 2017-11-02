@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 100;
+        return 300;
     }
 
     virtual void set_down(bool val)
@@ -306,7 +306,7 @@ int main()
     Crain crain;
     double dis;
     int position;
-    int i = 5, max_foot = 660, max_neck = 210, max_hand = 150;
+    int i = 5, max_foot = 660, max_neck = 210, max_hand = 130;
     
     while(true){
         if(crain.get_touch_pressed() == true){
