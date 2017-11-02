@@ -322,7 +322,7 @@ int main()
                 crain.move_foot(i, 0); //MOVE RIGHT
                 
                 
-                
+                sleep(2);
                 if(dis < 5)
                 {
                     sleep(3);
