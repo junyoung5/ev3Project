@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 300;
     }
     
     virtual int get_speed_neck()
     {
-        return 200;
+        return 300;
     }
     // virtual int  get_speed_foot()
     // {
@@ -188,7 +188,7 @@ void Crain::move_foot(int pos, int flag)
     c.set_position(0);
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
-    a.set_speed_sp(get_speed_hand());
+    b.set_stop_action("hold");
     c.run_to_abs_pos();
 }
 
@@ -201,7 +201,7 @@ void Crain::move_neck(int pos, int flag)
     b.set_position(0);
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
-    a.set_speed_sp(get_speed_hand());
+    b.set_stop_action("hold");
     b.run_to_abs_pos();
 }
 
@@ -331,7 +331,7 @@ int main()
                 std::cout<<"POSITION:           "<<position<<std::endl;
                 crain.move_neck(400, 0);
                 sleep(3);
-                crain.move_hand(100, 0);
+                crain.move_hand(80, 0);
                 sleep(3);
                 crain.move_neck(400, 1);
                 sleep(3);
@@ -340,7 +340,7 @@ int main()
                 sleep(3);
                 crain.move_neck(400,0);
                 sleep(3);
-                crain.move_hand(100, 1);
+                crain.move_hand(80, 1);
                 sleep(3);
                 crain.move_neck(400,1);
                 break;
