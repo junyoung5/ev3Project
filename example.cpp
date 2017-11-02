@@ -194,7 +194,6 @@ void Crain::move_foot(int pos, int flag)
    
     c.set_position_sp(pos);
     c.set_speed_sp(get_speed());
-    b.set_stop_action("hold");
     c.run_to_abs_pos();
 }
 
@@ -207,7 +206,7 @@ void Crain::move_neck(int pos, int flag)
     
     b.set_position_sp(pos);
     b.set_speed_sp(get_speed_neck());
-    b.set_stop_action("hold");
+    //b.set_stop_action("hold");
     b.run_to_abs_pos();
 }
 
@@ -307,7 +306,7 @@ int main()
     Crain crain;
     double dis;
     int position;
-    int i = 5, max_foot = 660, max_neck = 210, max_hand = 130;
+    int i = 5, max_foot = 660, max_neck = 210, max_hand = 150;
     
     while(true){
         if(crain.get_touch_pressed() == true){
@@ -326,9 +325,9 @@ int main()
                 
                 if(dis < 5)
                 {
+                    sleep(3);
                     position = crain.position_foot();
                     std::cout<< "POSITION         :" << position <<std::endl;
-                    sleep(3);
                     crain.move_neck(max_neck, 0);  //DOWN
                     sleep(3);
                     crain.move_hand(max_hand, 0);  //CATCH
