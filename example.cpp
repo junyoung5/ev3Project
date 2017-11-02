@@ -150,7 +150,7 @@ public:
 // 0~660 벗어났는지 확인
 bool Crain::is_over(int pos)
 {
-    if(pos > 650 || pos < 0)
+    if(pos > 650 || pos < -10)
     {
         return true;
     }
@@ -265,14 +265,14 @@ int main()
     Crain crain;
     double dis, position;
     int turn =0, slT = 3;
-    int i = 5, max_foot = 600, max_neck = 70, max_hand = 65;
+    int i = 10, max_foot = 600, max_neck = 70, max_hand = 65;
    
     
     while(true){
         
         if(crain.get_touch_pressed() == true){
             
-            crain.reset_motors();
+            crain.reset_motors(); //reset all motors position to 0
             
             
             while(true)
