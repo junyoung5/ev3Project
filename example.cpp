@@ -72,7 +72,7 @@ public:
     
     virtual int get_speed()
     {
-        return 500;
+        return 150;
     }
     
     virtual int get_speed_neck()
@@ -143,9 +143,18 @@ public:
     int position_foot();
     void practice();
     void getbackAuto();
+    bool is_over(int pos);
 };
 
 
+// 0~660 벗어났는지 확인
+bool Crain::is_over(int pos)
+{
+    if(pos > 650 || pos < 0)
+    {
+        return true;
+    }
+}
 
 void Crain::getbackAuto()
 {
@@ -250,84 +259,6 @@ int Crain::position_foot()
     return c.position();
 }
 
-void Crain::example_code()
-{ //This function is for example, you should develop your own logics
-
-    while(get_escape() == false)
-    {
-        
-        
-        //버튼이 눌렸는지 안눌렸는지 체크. 눌렸다면 get_동작()함수의 리턴값(ex.m_up, m_down 등)이 true로 바뀜. 
-        set_down(ev3dev::button::down.pressed());
-        set_up(ev3dev::button::up.pressed());
-        set_right(ev3dev::button::right.pressed());
-        set_left(ev3dev::button::left.pressed());
-        set_escape(ev3dev::button::back.pressed());
-        set_enter(ev3dev::button::enter.pressed());
-        
-        
-    
-        
-       if(get_enter())
-        {
-            a.set_speed_sp(get_speed());
-            a.run_forever();
-            a.set_stop_action("hold");
-        }
-        
-        //a 객체는 가운데 즉 outputB 모터다. speed가 마이너스면 위로 올라감. 
-        if(get_up()) // 
-        {   
-                b.set_speed_sp(-1*get_speed());
-                b.run_forever();
-                
-        } 
-        
-      
-        if(get_down())
-        {
-                b.set_speed_sp(get_speed());
-                b.run_forever();
-        }
-        
-        if(get_left())
-        {
-            c.set_speed_sp(get_speed());
-            c.run_forever();
-        }
-    
-        
-        
-        if(get_right())
-        {
-               a.set_speed_sp(-1* get_speed());
-               a.run_forever();
-               a.set_stop_action("hold");
-        }
-         
-      
-       //누르지 않은 상태면 다 멈추게 한다. 
-        if(!(get_up() | get_down() | get_right() | get_left() | get_enter()))
-        {
-            a.set_speed_sp(0);
-            a.run_forever();
-            b.set_speed_sp(0);
-            b.run_forever();
-            c.set_speed_sp(0);
-            c.run_forever();
-        }
-    
-      
-        
-    }
-
-    //a.stop();
-    //b.stop();
-    //c.stop();
-}
-
-
-
 
 int main()
 {     
@@ -338,6 +269,7 @@ int main()
    
     
     while(true){
+        
         if(crain.get_touch_pressed() == true){
             
             crain.reset_motors();
@@ -352,9 +284,12 @@ int main()
                 std::cout<< "POSITION         :" << position <<std::endl;
                 
                 
+                if(crain.is_over(position) == true)
+                {
+                    crain.getbackAuto();
+                }
                 
-                //660넘어가면 멈추는거 코딩. 
-                
+               
                 crain.move_foot(i, 0); //MOVE RIGHT
                 
                 
@@ -393,12 +328,6 @@ int main()
             
             //GET BACK TO HOME
             crain.getbackAuto();
-            
-            
-            
-            
-            
-            
             
             
         }
