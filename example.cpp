@@ -243,6 +243,13 @@ void Crain::move_hand(int pos, int flag)
     a.run_to_abs_pos();
     
 }
+
+
+int Crain::position_foot()
+{
+    return c.position();
+}
+
 void Crain::example_code()
 { //This function is for example, you should develop your own logics
 
@@ -319,15 +326,14 @@ void Crain::example_code()
     //c.stop();
 }
 
-int Crain::position_foot()
-{
-    return c.position_i();
-}
+
+
+
 int main()
 {     
     Crain crain;
-    double dis;
-    int position, turn =0, slT = 3;
+    double dis, position;
+    int turn =0, slT = 3;
     int i = 5, max_foot = 600, max_neck = 70, max_hand = 65;
    
     
@@ -345,6 +351,9 @@ int main()
                 position = crain.position_foot();
                 std::cout<< "POSITION         :" << position <<std::endl;
                 
+                
+                
+                //660넘어가면 멈추는거 코딩. 
                 
                 crain.move_foot(i, 0); //MOVE RIGHT
                 
