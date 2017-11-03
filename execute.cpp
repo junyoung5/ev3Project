@@ -154,7 +154,7 @@ public:
 
 void Crain::move_foot_rfr()
 {
-    c.set_speed_sp(300);
+    c.set_speed_sp(100);
     c.run_forever();
 
 }
@@ -270,9 +270,9 @@ void Crain::execute()
 {
     
     double dis, position;
-    int turn =0, slT = 3;
+    int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int flag = 1, max_foot = 660, max_neck = 170, max_hand = 70;
+    int flag = 1, max_foot = 660, max_neck = 130, max_hand = 70;
    
    
     reset_motors();
@@ -302,13 +302,7 @@ void Crain::execute()
             stop_foot_rfr();
             sleep(slT);
             
-            if(position < 330)
-            {
-                move_foot(position-60);
-                
-            }else{
-                move_foot(position-30);
-            }
+            move_foot(position);
             sleep(1);
             move_neck(max_neck);
             sleep(2.5);
