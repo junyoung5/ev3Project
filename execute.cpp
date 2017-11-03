@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 200;
+        return 250;
     }
     
     virtual int get_speed_neck()
     {
-        return 200;
+        return 250;
     }
     // virtual int  get_speed_foot()
     // {
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 200;
+        return 250;
     }
 
     virtual void set_down(bool val)
