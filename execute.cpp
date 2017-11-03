@@ -176,17 +176,17 @@ bool Crain::is_over(int pos)
 
 void Crain::getbackAuto()
 {
-    a.set_speed_sp(200);
+    a.set_speed_sp(300);
     a.set_position_sp(0);
     a.run_to_abs_pos();
     sleep(1);
     
-    b.set_speed_sp(200);
+    b.set_speed_sp(300);
     b.set_position_sp(0);
     b.run_to_abs_pos();
     sleep(1);
     
-    c.set_speed_sp(200);
+    c.set_speed_sp(300);
     c.set_position_sp(0);
     c.run_to_abs_pos();
 }
@@ -308,7 +308,7 @@ void Crain::execute()
             sleep(2.5);
             move_hand(max_hand);
             sleep(slT);
-            move_neck(50); //감지 후 올릴때 센서 바로 아래까지
+            move_neck(0); 
             sleep(slT);
             move_foot(max_foot);
             sleep(slT);
@@ -349,14 +349,14 @@ int main()
         if(crain.get_touch_pressed() == true)
         {
      
-         
+        crain.getbackAuto();
+         /*
          Crain *crain = new Crain();
          
          crain->execute();
          
          delete crain;
-         
-         
+         */
          
         }
     }
