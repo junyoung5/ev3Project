@@ -270,9 +270,9 @@ void Crain::execute()
 {
     
     double dis, position;
-    int turn =0, slT = 2;
+    int turn =0, slT = 3;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 120, max_hand = 60;
+    int flag = 1, max_foot = 660, max_neck = 170, max_hand = 70;
    
    
     reset_motors();
@@ -315,20 +315,16 @@ void Crain::execute()
             move_neck(max_neck);
             sleep(slT);
             move_hand(0);
+            
+            if(flag == 2){break;}
+            
             sleep(slT);
             move_neck(0);
             sleep(slT);
-            move_foot(200);
+            move_foot(0);
             sleep(slT);
             }
-            
-            
-    
-  
-    
-    
-    
-    
+    return;
 }
 
 
