@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 500;
+        return 300;
     }
 
     virtual void set_down(bool val)
@@ -258,7 +258,7 @@ int main()
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 40;
+    int i = 10, max_foot = 660, max_neck = 192, max_hand = 30;
    
     
     while(true)
@@ -310,7 +310,7 @@ int main()
             sleep(slT);
             crain.move_neck(max_neck);
             sleep(slT);
-            crain.move_hand(0);
+            crain.move_hand(10);
             sleep(slT);
             crain.move_neck(0);
             sleep(slT);
