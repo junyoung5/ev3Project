@@ -272,7 +272,7 @@ void Crain::execute()
     double dis, position;
     int turn =0, slT = 1.5;
     //max neck= 205(short) 192(long)
-    int flag = 1, max_foot = 660, max_neck = 170, max_hand = 70;
+    int flag = 1, max_foot = 660, max_neck = 192, max_hand = 60;
    
    
     reset_motors();
@@ -348,16 +348,12 @@ int main()
         
         if(crain.get_touch_pressed() == true)
         {
-     
-        
-         
          Crain *crain = new Crain();
          
          crain->execute();
          
          delete crain;
-         
-         
         }
+        
     }
 }
