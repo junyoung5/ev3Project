@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 800;
+        return 200;
     }
     
     virtual int get_speed_neck()
     {
-        return 800;
+        return 200;
     }
     // virtual int  get_speed_foot()
     // {
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 500;
+        return 200;
     }
 
     virtual void set_down(bool val)
@@ -272,11 +272,11 @@ void Crain::execute()
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 70;
+    int i = 10, max_foot = 660, max_neck = 120, max_hand = 60;
    
    
-   reset_motors();
-   std::cout<< "a, b, c"<<position_hand() << position_neck() << position_foot() << std::endl;
+    reset_motors();
+    std::cout<< "a, b, c"<<position_hand() << position_neck() << position_foot() << std::endl;
         
         for(int z = 0; z < 3; z++)
         {
