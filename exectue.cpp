@@ -143,9 +143,13 @@ public:
     void reset_motors();
     void zero_position_foot();
     int position_foot();
+    int position_neck();
+    int position_hand();
     void practice();
     void getbackAuto();
     bool is_over(int pos);
+    void execute();
+    
 };
 
 void Crain::move_foot_rfr()
@@ -252,13 +256,86 @@ int Crain::position_foot()
     return c.position();
 }
 
-int main()
-{     
-    Crain crain;
+
+void Crain::execute()
+{
+    
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
     int i = 10, max_foot = 660, max_neck = 192, max_hand = 70;
+   
+   
+   reset_motors();
+   std::cout<< "a, b, c" << position_foot() << 
+        
+        for(int z = 0; z < 3; z++)
+        {
+            
+            //scan
+            while(true)
+            {
+                dis = get_distance();
+                std::cout<<"DISTANCE1: "<< dis <<std::endl;
+                //position = crain.position_foot();
+                //std::cout<< "POSITION         :" << position <<std::endl;
+                
+                
+                move_foot_rfr();
+                if(dis < 15)
+                {
+                    position = position_foot();
+                    std::cout<< "POSITION         :" << position <<std::endl;
+                    break;
+                }
+                
+            }
+            stop_foot_rfr();
+            sleep(slT);
+            
+            move_foot(position-30);
+            sleep(0.5);
+            move_neck(max_neck);
+            sleep(2.5);
+            move_hand(max_hand);
+            sleep(slT);
+            move_neck(0);
+            sleep(slT);
+            move_foot(max_foot);
+            sleep(slT);
+            move_neck(max_neck);
+            sleep(slT);
+            move_hand(0);
+            sleep(slT);
+            move_neck(0);
+            sleep(slT);
+            move_foot(200);
+            sleep(slT);
+            }
+            
+            
+    
+  
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{     
+    Crain crain;
    
     
     while(true)
@@ -293,7 +370,7 @@ int main()
             crain.stop_foot_rfr();
             sleep(slT);
             
-            crain.move_foot(position-60);
+            crain.move_foot(position-30);
             sleep(0.5);
             crain.move_neck(max_neck);
             sleep(2.5);
