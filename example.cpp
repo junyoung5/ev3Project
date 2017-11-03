@@ -258,7 +258,7 @@ int main()
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 30;
+    int i = 10, max_foot = 660, max_neck = 192, max_hand = 55;
    
     
     while(true)
@@ -295,11 +295,11 @@ int main()
             
             if(position < 300)
             {
-            crain.move_foot(position-30);
+            crain.move_foot(position-55);
             }else{
-                crain.move_foot(position-10);
+                crain.move_foot(position-30);
             }
-            sleep(0.5);
+            sleep(1);
             crain.move_neck(max_neck);
             sleep(2.5);
             crain.move_hand(max_hand);
@@ -312,7 +312,7 @@ int main()
             sleep(slT);
             crain.move_hand(10);
             sleep(slT);
-            crain.move_neck(0);
+            crain.move_neck(-20);
             sleep(slT);
             crain.move_foot(200);
             sleep(slT);
