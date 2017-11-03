@@ -258,7 +258,7 @@ int main()
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 55;
+    int i = 10, max_foot = 660, max_neck = 192, max_hand = 60;
    
     
     while(true)
@@ -295,7 +295,7 @@ int main()
             
             if(position < 300)
             {
-            crain.move_foot(position-55);
+            crain.move_foot(position-60);
             }else{
                 crain.move_foot(position-30);
             }
