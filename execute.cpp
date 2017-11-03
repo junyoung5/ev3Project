@@ -154,7 +154,7 @@ public:
 
 void Crain::move_foot_rfr()
 {
-    c.set_speed_sp(200);
+    c.set_speed_sp(300);
     c.run_forever();
 
 }
@@ -305,10 +305,11 @@ void Crain::execute()
             if(position < 330)
             {
                 move_foot(position-60);
+                
             }else{
                 move_foot(position-30);
             }
-            sleep(0.5);
+            sleep(1);
             move_neck(max_neck);
             sleep(2.5);
             move_hand(max_hand);
