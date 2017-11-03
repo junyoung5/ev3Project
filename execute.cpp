@@ -272,7 +272,7 @@ void Crain::execute()
     double dis, position;
     int turn =0, slT = 1.5;
     //max neck= 205(short) 192(long)
-    int flag = 1, max_foot = 660, max_neck = 60, max_hand = 70;
+    int flag = 1, max_foot = 660, max_neck = 192, max_hand = 70;
    
    
     reset_motors();
@@ -287,7 +287,8 @@ void Crain::execute()
                 dis = get_distance();
                 std::cout<<"DISTANCE1: "<< dis <<std::endl;
                 //position = crain.position_foot();
-                //std::cout<< "POSITION         :" << position <<std::endl;
+                std::cout<< "POSITION B         :" << position_neck() <<std::endl;
+                
                 
                 
                 move_foot_rfr();
