@@ -321,7 +321,7 @@ void Crain::execute()
             sleep(slT);
             move_hand(0);
             
-            if(flag == 2){break;}
+            if(flag == 3){break;}
             
             sleep(slT);
             move_neck(0);
