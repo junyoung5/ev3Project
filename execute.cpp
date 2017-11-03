@@ -349,14 +349,14 @@ int main()
         if(crain.get_touch_pressed() == true)
         {
      
-        crain.getbackAuto();
-         /*
+        
+         
          Crain *crain = new Crain();
          
          crain->execute();
          
          delete crain;
-         */
+         
          
         }
     }
