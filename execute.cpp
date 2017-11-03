@@ -256,6 +256,15 @@ int Crain::position_foot()
     return c.position();
 }
 
+int Crain::position_neck()
+{
+    return b.position();
+}
+
+int Crain::position_hand()
+{
+    return a.position();
+}
 
 void Crain::execute()
 {
@@ -267,7 +276,7 @@ void Crain::execute()
    
    
    reset_motors();
-   std::cout<< "a, b, c" << position_foot() << 
+   std::cout<< "a, b, c"<<position_hand() << position_neck() << position_foot() << std::endl;
         
         for(int z = 0; z < 3; z++)
         {
@@ -334,63 +343,20 @@ void Crain::execute()
 
 
 int main()
-{     
-    Crain crain;
-   
+{    
     
-    while(true)
-    {
-        
+    
         if(crain.get_touch_pressed() == true)
         {
-            crain.reset_motors(); //reset all motors position to 0
-            
-            
-        for(int z = 0; z < 3; z++)
-        {
-            
-            //scan
-            while(true)
-            {
-                dis = crain.get_distance();
-                std::cout<<"DISTANCE1: "<< dis <<std::endl;
-                //position = crain.position_foot();
-                //std::cout<< "POSITION         :" << position <<std::endl;
-                
-                
-                crain.move_foot_rfr();
-                if(dis < 15)
-                {
-                    position = crain.position_foot();
-                    std::cout<< "POSITION         :" << position <<std::endl;
-                    break;
-                }
-                
-            }
-            crain.stop_foot_rfr();
-            sleep(slT);
-            
-            crain.move_foot(position-30);
-            sleep(0.5);
-            crain.move_neck(max_neck);
-            sleep(2.5);
-            crain.move_hand(max_hand);
-            sleep(slT);
-            crain.move_neck(0);
-            sleep(slT);
-            crain.move_foot(max_foot);
-            sleep(slT);
-            crain.move_neck(max_neck);
-            sleep(slT);
-            crain.move_hand(0);
-            sleep(slT);
-            crain.move_neck(0);
-            sleep(slT);
-            crain.move_foot(200);
-            sleep(slT);
-            }
-            
-            
+     
+         
+         Crain *crain = new Crain();
+         crain.execute();
+         
+         delete Crain;
+         
+         
+         
         }
-    }
+  
 }

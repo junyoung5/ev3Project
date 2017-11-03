@@ -77,7 +77,7 @@ public:
     
     virtual int get_speed_neck()
     {
-        return 800;
+        return 600;
     }
     // virtual int  get_speed_foot()
     // {
@@ -258,7 +258,7 @@ int main()
     double dis, position;
     int turn =0, slT = 2;
     //max neck= 205(short) 192(long)
-    int i = 10, max_foot = 660, max_neck = 192, max_hand = 70;
+    int i = 10, max_foot = 660, max_neck = 192, max_hand = 40;
    
     
     while(true)
@@ -293,7 +293,12 @@ int main()
             crain.stop_foot_rfr();
             sleep(slT);
             
-            crain.move_foot(position-60);
+            if(position < 300)
+            {
+            crain.move_foot(position-30);
+            }else{
+                crain.move_foot(position-10);
+            }
             sleep(0.5);
             crain.move_neck(max_neck);
             sleep(2.5);
