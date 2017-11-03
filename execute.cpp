@@ -308,7 +308,7 @@ void Crain::execute()
             sleep(2.5);
             move_hand(max_hand);
             sleep(slT);
-            move_neck(0);
+            move_neck(50); //감지 후 올릴때 센서 바로 아래까지
             sleep(slT);
             move_foot(max_foot);
             sleep(slT);
