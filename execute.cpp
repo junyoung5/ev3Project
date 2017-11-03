@@ -272,7 +272,7 @@ void Crain::execute()
     double dis, position;
     int turn =0, slT = 1.5;
     //max neck= 205(short) 192(long)
-    int flag = 1, max_foot = 660, max_neck = 60, max_hand = 90;
+    int flag = 1, max_foot = 660, max_neck = 60, max_hand = 70;
    
    
     reset_motors();
@@ -291,7 +291,7 @@ void Crain::execute()
                 
                 
                 move_foot_rfr();
-                if(dis < 15)
+                if(dis < 25)
                 {
                     position = position_foot();
                     std::cout<< "POSITION         :" << position <<std::endl;
@@ -308,7 +308,7 @@ void Crain::execute()
             sleep(2.5);
             move_hand(max_hand);
             sleep(slT);
-            move_neck(0); 
+            move_neck(30); 
             sleep(slT);
             move_foot(max_foot);
             sleep(slT);
