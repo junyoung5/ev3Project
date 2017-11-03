@@ -302,7 +302,12 @@ void Crain::execute()
             stop_foot_rfr();
             sleep(slT);
             
-            move_foot(position-30);
+            if(position < 330)
+            {
+                move_foot(position-60);
+            }else{
+                move_foot(position-30);
+            }
             sleep(0.5);
             move_neck(max_neck);
             sleep(2.5);
@@ -323,6 +328,8 @@ void Crain::execute()
             sleep(slT);
             move_foot(0);
             sleep(slT);
+            
+            flag += 1; 
             }
     return;
 }
