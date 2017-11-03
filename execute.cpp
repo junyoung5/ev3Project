@@ -344,19 +344,22 @@ void Crain::execute()
 
 int main()
 {    
-    
-    
+    Crain crain;
+    while(true)
+    {
+        
         if(crain.get_touch_pressed() == true)
         {
      
          
          Crain *crain = new Crain();
-         crain.execute();
          
-         delete Crain;
+         crain->execute();
+         
+         delete crain;
          
          
          
         }
-  
+    }
 }

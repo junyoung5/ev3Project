@@ -256,7 +256,7 @@ int main()
 {     
     Crain crain;
     double dis, position;
-    int turn =0, slT = 2;
+    int turn =0, slT = 1.5;
     //max neck= 205(short) 192(long)
     int i = 10, max_foot = 660, max_neck = 192, max_hand = 60;
    
@@ -293,15 +293,15 @@ int main()
             crain.stop_foot_rfr();
             sleep(slT);
             
-            if(position < 300)
+            if(position < 440)
             {
             crain.move_foot(position-60);
             }else{
                 crain.move_foot(position-30);
             }
-            sleep(1);
+            sleep(0.5);
             crain.move_neck(max_neck);
-            sleep(2.5);
+            sleep(slT);
             crain.move_hand(max_hand);
             sleep(slT);
             crain.move_neck(0);
@@ -310,11 +310,11 @@ int main()
             sleep(slT);
             crain.move_neck(max_neck);
             sleep(slT);
-            crain.move_hand(10);
+            crain.move_hand(0);
             sleep(slT);
-            crain.move_neck(-20);
+            crain.move_neck(0);
             sleep(slT);
-            crain.move_foot(200);
+            crain.move_foot(150);//220으로 계속 돌아감. 
             sleep(slT);
             }
             
