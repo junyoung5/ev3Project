@@ -20,7 +20,7 @@ public:
 		cout << "걷는중입니다." << endl;
 	}
 
-	virtual void Study() {
+    virtual void Study() {
 		cout<<"공부안하는 중입니다"<<endl;
 	}
 	
@@ -59,13 +59,29 @@ Person::~Person(){
 
 int main()
 {
+	
 	Person * ptr1 = new Person;
-	Student * ptr2 = new Student;
-
+	Person * ptr2 = new Student;
+	
+	
 	ptr1->Info();
 	ptr1->Study();
+	
+	
 	ptr2->Study();
-
+	
 	delete ptr1;
 	delete ptr2;
+	// int age = 17;
+	// char name[] = "Junyoung";
+	// char sName[] = "Jihyun";
+	// int grd = 100;
+	// int hr = 5;
+	
+	// Person jun = Person(name, age);
+	// jun.Info();
+	// jun.Study();
+	
+	// Student std = Student(sName, age, grd, hr);
+	// std.Study();
 }
