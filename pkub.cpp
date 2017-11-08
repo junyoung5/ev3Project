@@ -72,12 +72,12 @@ public:
     
     virtual int get_speed()
     {
-        return 1000;
+        return 780;
     }
     
     virtual int get_speed_neck()
     {
-        return 1000;
+        return 660;
     }
     // virtual int  get_speed_foot()
     // {
@@ -91,7 +91,7 @@ public:
     
     virtual int get_speed_hand()
     {
-        return 1000;
+        return 400;
     }
 
     virtual void set_down(bool val)
@@ -164,17 +164,17 @@ void Crain::stop_foot_rfr()
 
 void Crain::getbackAuto()
 {
-    a.set_speed_sp(300);
+    a.set_speed_sp(100);
     a.set_position_sp(0);
     a.run_to_abs_pos();
     sleep(1);
     
-    b.set_speed_sp(300);
+    b.set_speed_sp(100);
     b.set_position_sp(0);
     b.run_to_abs_pos();
     sleep(1);
     
-    c.set_speed_sp(300);
+    c.set_speed_sp(100);
     c.set_position_sp(0);
     c.run_to_abs_pos();
 }
@@ -289,9 +289,9 @@ void Crain::execute()
 {
     
     double dis, position;
-    double turn =0, slT = 0.8;
+    int turn =0, slT = 1.3;
     //max neck= 205(short) 192(long)
-    int flag = 1, max_foot = 580, max_neck = 220, max_hand = 75;
+    int flag = 1, max_foot = 570, max_neck = 220, max_hand = 75;
    
    
     reset_motors();
@@ -322,7 +322,7 @@ void Crain::execute()
             stop_foot_rfr();
             sleep(slT);
             move_foot(position+35);
-            sleep(slT);
+            sleep(1.0);
             move_neck(max_neck);
             sleep(slT);
             move_hand(max_hand);
