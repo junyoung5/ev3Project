@@ -33,7 +33,7 @@ public:
 		cout << "나이 : " << age << endl;
 	}
 	
-	virtual ~Person();
+	virtual ~Person();  //main에서 Person type으로 Student를 객체화하기 때문에. virtual로 해야 student 소멸시 person도 없애준다. 
 };
 
 
@@ -75,12 +75,11 @@ int main()
 	int hour = 4;
 	
 	Person * ptr1 = new Person;   
-	Person * ptr2 = new Student(name, age, grd, hour); //인자전달시 두번째 초기화함수 실행 됨.
+	Student * ptr2 = new Student; //인자전달시 두번째 초기화함수 실행 됨.
 	
 	
 	ptr1->Info();
 	ptr1->Study();
-	ptr2->Info();
 	//만약 부모클래스의 오버라이딩된 함수가 가상함수가 아니라면, 여기서 부모클래스의 Study 메소드 호출됨. 
 	//그러나 가상함수가 되어있으므로 현재 포인터가 가리키고 있는 클래스의 Study 함수 불러옴.
 	ptr2->Study(); 
