@@ -1,0 +1,469 @@
+<lecture1>
+• Patent
+– A patent is a limited duration property right relating to an invention, granted by the United States Patent and Trademark Office in exchange for public disclosure of the invention. Patentable materials include machines, manufactured articles, industrial processes, and chemical compositions.
+– Grant a time-limited monopoly to incentivize creativity
+
+• Copyright
+– A copyright protects original works of authorship including literary, dramatic, musical, and artistic works, such as poetry, novels, movies, songs, computer software, and architecture.
+– Some exceptions: Fair Use
+
+Fair Use
+copyright works have a fair use caluse
+fair use depend on 
+-purpose and character of use, for commericial or nonprofit educaitonal purposes
+can you use powerpoint presention in website?
+when in doubt, cite it.
+
+Software who owns it?
+source code is a tangible expression of an idea
+not an artifact
+compiled version is treated as a tool. linedsed for limited use
+can't resell software(no-first-sale doctrien)
+can make limited copies
+
+• What is Programming?
+– The art of making a computer do what you want it to do 
+– Program as a tool for solving various problems
+What if we reuse the instructions which are already developed? Aha! That’s good Idea! How about IP right?
+1. I don’t want to share my code. (Proprietary License)
+2. Everycodeshouldbeopenedandshared.(OpenSourceLicense)
+
+• Canbegroupedintothreecategories(differinggoals):
+– Permissive: Can make proprietary versions (MIT, BSD-new)
+– Weakly protective: Can’t distribute proprietary version of this component, but can link into larger proprietary work (LGPL)
+– Strongly protective: Can’t distribute proprietary version or directly combine (link) into proprietary work (GPL)
+
+
+design -> implementation(sour code) ->compie(compiler, object coe) -> link(linker(library))->execute
+
+• Object-OrientedProgramming
+– Decompose a problem into its constituent parts. Each component becomes a self-contained object that contains its own instructions and data related to that object.
+• Encapsulationanddatahiding
+– programming mechanism that binds together
+(into object) code and the data it manipulates, and that keeps both safe fr om outside interference and misuse.
+• Inheritance
+– the process by which one object can acquire the properties of another object.
+• Polymorphism(다형성)
+– Polymorphism (from the Greek, meaning “many forms”) is the quality that
+allows one interface to be used for a general class of actions.
+– The specific action is determined by the exact nature of the situation.
+
+• Class ( TypeinC)
+– Defines the abstract characteristics of a thing (object)
+» attributes (data) + behaviors (operations = methods) • Object (   Variable in C )
+– A pattern (exemplar) of a class • Instance
+– The actual object created at runtime – State
+» The set of values of the attributes of a particular object
+METHOD - funciton
+
+ Encapsulation conceals the functional details defined in a class from external world (clients).
+– Information hiding – Interface
+Reason
+– To separate an interface from an implementation that are likely to change in future
+– Allowing classes’ changes to be made more easily without changes to interface
+• Subclasses
+– Hierarchical classification in a tree form – More specialized versions of superclass
+Inheritance
+– Inherits data(attributes) and operations(behaviors) from parent – Pluses own data and operations
+– Increases reusability by inheritance
+POLYMORPHISM
+Allowvaluesofdifferentdatatypestobehandledusingauniform interface.
+• Onefunctionname,variousdatatypes – Function overloading
+• Merit
+– improve code readability
+
+<Lecture2>
+• Sometimes the computer and the program are consider ed to be one unit.
+– Programmers typically find this view to be more convenient.
+
+• Inotherwords,wecallitCentralProcessingUnit(CPU)orchips(e.g.i7 processor)
+– Processes a sequence of instructions – Sequence of instructions = Program
+• Itcanprocessonlyverysimpleinstructions – Load Data/Store Data
+– Add Data, etc.
+• Thepowerofcomputingcomesfromspeedandprogramcomplexity
+
+• Memorystores
+– Program code
+– Data for the computer to process
+– Intermediate data during processing the instructions
+• Twokindsofmemory
+– Main memory
+» Usually measured in megabytes (e.g. 8 gigabytes of RAM)
+» RAM is short for random access memory
+» A byte is a quantity of memory
+– Auxiliary memory
+» In other words, secondary memory
+» Disk drives, CDs, DVDs, flash drives, etc.
+» More or less permanent (nonvolatile)
+
+Identifiers
+– An identifier is the name used for a data object(a variable or a constant), or for a function, in a C++ program
+– An identifier must start with a letter or underscore, and be followed by zero or more letters
+(A-Z, a-z), digits(0-9), or underscores _
+• Variables
+– A variable is a location in memory that can be referred to by an identifier
+and in which a data value that can be changed is stored
+– Declaring a variable means specifying both its name and its data type
+char myChar = ‘p’;
+Variable Identifier : myChar (memory location : 1101010011)
+
+ A character literal is a single character enclosed in single quotes, for example, ‘a’ and ‘0’. The type of a character literal is char.
+• A character literal can be implicitly converted to its integer value in the character set of the machine on which the C++ program is to run.
+
+  lvalue function
+- retrieve space from identifier(address)
+- left side of assignment statemen
+
+rvalue function
+   left side should be space.
+How to retrieve space? -> Use identifier
+right side should be space.
+- -
+retrieve value from identifier(address) right side of assignment statement'
+
+Scope
+– Region of C/C++ program text over which the declaration is active (valid)
+• Five scopes for C/C++ identifiers
+– Top-level declaration in a source code is active
+» From the declaration point to the end of the source file
+– Formal parameter declaration for function is active » From the declaration point to the end of function body
+– Declaration at beginning of a block {...} is active » From the declaration point to the end of block
+– Statement label is active
+» The entire function body in which the statement label appears
+– Preprocessor macro is active
+» From the #define to the end of the source file or until #undef
+• Visibility
+– A declaration is visible within scope and hidden out of scope or by other declarations whose visibility overlaps that of the previous one.
+
+Localvariable
+– It is declared inside of a function at the beginning of { }
+– not initialized by 0 automatically and remained as a garbage unless initialized.
+• Globalvariable
+– It is declared outside of a function at a top-level
+– initialized by 0
+– Declaration and initialization can be done at the same time only!
+
+Namespcae: a scope for expressing logical grouping
+• DeclarationSyntax
+namespace namespace-name{
+// member declaration and definitions
+}
+• Namespace definition and implementation: 2 ways
+Implementation in declaration block Interface separated from the implementation
+
+
+namespace Space{ int data;
+double func1(int arg);
+void func2(bool arg); }
+double Space :: func1(int arg) {/* ... */ }
+void Space :: func2(bool arg) {/* ... */ }
+
+ Accessing members in namespace – scope resolution operator : :
+namespace-name :: func1(x);
+– using-declaration
+» makes a name of a namespace available
+using namespace-name::func1; using namespace-name::func2; func1(x);
+func2(x);
+– using-directive
+» makes all names from a namespace available
+using namespace namespace-name; func1(x);
+func2(x);
+• The standard library is defined in a namespace “std”
+
+
+ Macros are very important in C but have far fewer uses in C++. The first rule about macros is : don’t use them unless you have to.
+• Becausetheyrearrangetheprogramtextbeforecompilerpropersees it, macros are also a major problem for many programming support tools.
+A simple macro is defined like this:
+#define NAME rest of line
+
+
+ Asequenceisaseriesofstatements(instructions)thatexecute one after another
+
+ A selection(branch/condition) statement is used to determine which of two different statements to execute depending on certain conditions
+
+Alooping(repetition)statementisusedtorepeatstatementswhile certain conditions are met
+A subprogram is a smaller part of another program; a collection of subprograms solves the original problem
+
+  Array is useful to represent a large number of data in the same type But, a size of array is finite!   Physical memory size is finite.
+  How about array of variables in different types?  Class/Objects in OO programming
+  
+An aggregate of elements of the same type
+– Type of array elements - any type defined in C language.
+• Declaration syntax
+type name[size];   1-dimensional array
+• An element
+– array name + subscript : name[0], name[1], ...
+– Subscript starts from zero(0).
+• Declaration example
+int num[100];
+
+External and static arrays are initialized with zero.
+• Automatic and register arrays are not initialized with zero.
+
+Character constant
+– Integer value represented as character in single quotes – 'z' is integer value of z
+» 122 in ASCII
+• String
+– Series of characters treated as single unit
+– Can include letters, digits, special characters +, -, * ... – String literal (string constants)
+» Enclosed in double quotes, for example: "I like C++"
+– Array of characters, ends with null character '\0' – String is constant pointer
+» Pointer to string’s first character • Like arrays
+
+ String assignment
+– Character array
+» char color[] = "blue";
+• Creates 5 element char array color
+• last element is '\0‘
+– Variable of type char *
+» char *colorPtr = "blue";
+• Creates pointer colorPtr to letter b in string “blue” • “blue” somewhere in memory
+•
+– Alternative for character array
+» char color[] = { ‘b’, ‘l’, ‘u’, ‘e’, ‘\0’ };
+
+Readingstrings
+– Assign input to character array word[ 20 ]
+cin >> word
+» Reads characters until whitespace or EOF
+» String could exceed array size
+            cin >> setw( 20 ) >> word;
+» Reads 19 characters (space reserved for '\0')
+
+
+std::cin.getline – Read line of text
+– std::cin.getline( array, size, delimiter );
+– Copies input into specified array until either » One less than size is reached
+» delimiter character is input
+– Example
+char sentence[ 80 ];
+std::cin.getline( sentence, 80, '\n' );
+
+
+• Stringhandlinglibrary<cstring>providesfunctionsto – Manipulate string data
+– Compare strings
+– Search strings for characters and other strings
+– Tokenize strings (separate strings into logical pieces)
+
+
+A string literal is a character sequence enclosed within double quotes:
+“this is a string”
+• It is terminated by the null character, ’\0’
+size of(“Bohr”)==5
+• type of a string literal is “array of the appropriate number of const characters,”
+void f() {
+char* p = “Plato”; // error, but accepted in the pre-C++11-standard code
+p[4] = ‘e’; // error : assignment to const }
+• If we want a string that we are guaranteed to be able to modify, we must place the characters in a non-const array:
+void f() {
+char p[] = “Zeno”; // p is an array of 5 char
+p[0] = ‘R’; // OK
+
+
+Structure
+
+•
+A compound data type which combines variables with different data types.
+   •
+To represent grades of class
+Declaration Syntax for struct template
+4 members are packed and associated in a struct. Each can be accessed via the same struct variable first
+and then its member name.
+
+
+Operations on structure
+– Comparison of two structures in equality is not permitted » Equality function for member-by-member should be used
+– &(address of) is permitted for structure and a member of the structure » Pointer to the structure and pointer to the component
+• Membersinstruct
+– Any type except “function returning ........” and void. » “Pointer to function returning....” is ok
+– Structure may not contain instances of themselves, but may contain pointers to instances of themselves.
+struct S {int a; struct S next; }; /* illegal struct S {int a; struct S *next; }; /* ok
+– Names within a single struct must be distinct.
+int x;
+structure A {int x; double y;} y; /* the seq of def. is ok */
+
+
+ Accessing member
+– Use association of struct variable and its member variable names
+• Operators for assoication
+– If a struct variable is scalar, use . (dot)
+– If a struct variable is pointer, use -> (arrow) – Format
+
+nitializingstructvariables
+– Initialized when the variables are defined
+– Extern and static model can be initialized
+– The initializing values are expressed sequentially in between the curly braces ( { } ).
+
+union
+– Memory that contains a variety of objects over time – Only contains one data member at a time
+– Members of a union share space
+– Conserves storage
+• union declarations
+– Same as struct
+       union Number {
+         int x;
+float y; };
+       union Number value;
+       
+       
+ An enumeration is a type that can hold a set of integer values specified by the user.
+• Someofanenumeration’spossiblevaluesarenamedandcalled enumerators.
+- example
+enum class Color {red, green, blue};
+
+
+Passing a pointer (reference) to an object is cheaper than passing the entire object
+– This is what Java does implicitly
+• Also used to implement relationships between objects in code
+• To access machine addresses in systems programming
+• To support certain data structures
+– Lists, trees, etc. (recursive data structures)
+• To support better separation of interface and implementation (e.g., the Bridge design pattern)
+
+
+ Anobjectwhosevaluerepresentsthelocation(address)ofanother object
+• Morespecifically:
+– Avariablethatholdsanaddress
+• Usuallydon’tcarewhattheactualnumericaddressvalueis – Except in systems programming (Embedded Programming)
+
+
+Pointer
+– In C++ there are pointer types for each type of object
+» Pointers to int objects
+» Pointers to char objects
+» Pointers to User-defined Type objects
+– Even pointers to pointers
+» Pointers to pointers to int objects
+
+ Pointer variables
+– Contain memory addresses as values
+– Normally, variable contains specific value (direct reference)
+– Pointers contain address of variable that has specific value (indirect reference)
+
+Indirection
+– Referencing value through pointer
+Pointer declarations
+– * indicates variable is pointer
+countPtr
+count
+count
+ 
+7 7
+ int *myPtr;
+declares pointer to int, pointer of type int *
+– Multiple pointers require multiple asterisks
+     int *myPtr1, *myPtr2;
+     
+• NULL
+– a pointer assigned a value of 0
+– indicating that a pointer is not currently addressing a data object
+– defined in “stdio.h”
+» #define NULL 0
+• Pointer variables without initialization
+– =NULL
+• Dereferencing
+–
+segmentation fault error
+
+• Occasionally use 2 levels
+• Givenint**p; **p is an int =>
+*p is a pointer to an int =>
+p is a pointer to a pointer to an int
+
+ & (address operator)
+– Returns memory address of
+❖ yPtr “points to” y ❖ * - indirection/
+its operand
+– Example
+dereferencing operator)
+❖ *yPtrreturnsy
+dereferenced pointer is lvalue ❖*yptr=9 ??
+y
+int y = 5; int *yPtr; yPtr = &y;
+
+• An asterisk has two uses with regard to pointers – In a definition, it indicates that the object is a pointer
+char *s; // s is of type pointer to char
+– In expressions, when applied to a pointer it evaluates to
+the object to which the pointer points
+• 3 ways to pass arguments to function
+– Pass-by-value
+– Pass-by-reference with reference arguments – Pass-by-reference with pointer arguments
+• Arguments passed to function using reference arguments
+– Modify original values of arguments – More than one value “returned”
+
+• Pointer arithmetic
+– Increment/decrement pointer (++ or --)
+– Add/subtract an integer to/from a pointer( + or += , - or -=)
+– Pointers may be subtracted from each other
+– Pointer arithmetic meaningless unless performed on pointer to array
+
+ Subtracting pointers
+– Returns number of elements between two addresses
+vPtr2 = v[ 2 ]; vPtr = v[ 0 ]; vPtr2 - vPtr == 2
+
+Pointer assignment
+– Pointer can be assigned to another pointer if both of same type
+– If not same type, cast operator must be used – Exception: pointer to void (type void *)
+» Generic pointer, represents any type
+» No casting needed to convert pointer to void pointer » void pointers cannot be dereferenced
+
+const char* p1; // *p1 = ‘c’ illegal; ++p1 OK 
+char* const p2; // *p2 = ‘c’ OK; ++p2 illegal 
+const char* const p3; // no changes at all allowed
+
+• inspect()function
+– Prints the bytes of an object
+• Receives a void* parameter
+– So any pointer type can be passed
+• Convertstoachar*toinspectbytes
+
+• Reference
+– For a type T, T& means reference to T – An alternative name for an object
+– To ensure that a reference is a name for something, we must initialize the reference
+
+The value of a reference cannot be changed after initialization; it refers t o the object it was initialized to denote
+– To get a pointer to the object denoted by a reference rr, we can write &rr
+
+A reference can be used for call-by-reference in parameter passing
+
+
+Overloading
+• A function name can be overloaded
+– Two functions with the same name but with different interfaces
+» Typically this means different formal parameter lists • Difference in number of parameters
+Min(a, b, c)
+Min(a, b)
+• Differenceintypesofparameters
+Min(10, 20) Min(4.4, 9.2)
+
+• Compiler uses function overload resolution to call the most appropriate function
+– First looks for a function definition where the formal and actual parameters exactly match
+– If there is no exact match, the compiler will attempt to cast the actual parameters to ones used by an appropriate function
+• The rules for function definition overloading are very complicated
+– Advice
+» Be very careful when using this feature
+• Multiple functions can have same name – Must have unique parameter list, though
+• Functionsignature
+– Function name and types and order of parameters in parameter list
+– Functions must have a unique signature
+
+• Function declared in different scopes do not overload
+
+ Newoperator:creatinganobjectonthefreestoreindependentofthe scope
+• Deleteoperator:destroytheobject
+
+• Arrays of objects can also be created using new char* s = new char[strlen(p)+1];
+delete[] p;
+• A vector is a proper object and can be allocated and deallocated using plain new and delete
+std::vector<int>* p= new std::vector<int>(n); delete p;
+
+• new,delete,new[],delete[] void* operator new(size_t); void operator delete(void*) void* operator new[](size_t); void operator delete[](void*);
+• What happens when new can find no store to allocate
+=> By default, the allocator throws a bad_alloc exception
+try { for( ; ; ) new char[10000];
+}
+catch(bad_alloc) { cerr<<“Memory exhausted!\n”;}
+• We can specify what new should do upon memory exhaustion
+void out_of_store(){ cerr<<...}
+int main() { set_new_handler(out_of_store); ...}
+//make out_of_store the new_handler

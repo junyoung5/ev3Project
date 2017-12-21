@@ -1,0 +1,146 @@
+<Overload>
+• Multiple functions can have same name – Must have unique parameter list, though
+• Functionsignature
+– Function name and types and order of parameters in parameter list
+– Functions must have a unique signature
+
+
+Function declared in different scopes do not overload
+
+<절차 지향과 자료추상화의 차이>
+• Procedural abstraction: Lib 1 and AP1
+– Focus on procedures defined on data
+– Data and associated operations are defined in separated manner.
+– Operations are applied to data after identification of the data type
+– Usecasestatementtoidentifyanimaltypes
+– Addition of a new animal type needs to change case statement
+• Data abstraction: Lib 2 and AP2
+– Focus on data type
+– Data and associated operations are bound as a package
+– A set of operations is bound to data on which they are defined
+– Caseless, thus no identification of types
+– Addition of a new animal type needs no change in control statement
+
+• Abstractdatatype(ADT)
+– Definition of set of data + associated operations
+• ImplementationofADT – datadata structure
+» Stack, Queue, Tree etc.
+– operationsmanipulation of data structure
+» Stack: push, pop etc.
+• Which is focused?
+– Procedure abstraction
+» Focus on operations – Data abstraction
+» Focus on data + operations as one – Object abstraction
+» Data abstraction + reusable sub types
+
+<Inheritance 상속>
+• Inheritance
+– Inherits data(attributes) and operations(behaviors) from parent – Pluses own data and operations
+– Increases reusability by inheritance
+
+<Namespace>
+ Accessing members in namespace – scope resolution operator : :
+namespace-name :: func1(x);
+– using-declaration
+» makes a name of a namespace available
+using namespace-name::func1; using namespace-name::func2; func1(x);
+func2(x);
+– using-directive
+» makes all names from a namespace available
+using namespace namespace-name; func1(x);
+func2(x);
+• The standard library is defined in a namespace “std”
+
+<Class>
+• Classscope
+– Data members, member functions
+– Within class scope
+» Class members
+• Immediatelyaccessiblebyallmemberfunctions • Referencedbyname
+– Outside class scope
+» Referenced through handles
+• Objectname,referencetoobject,pointertoobject
+• Filescope
+– Nonmember functions
+
+<Class Scope>
+• Function scope
+– Variables declared in member function
+– Only known to function
+– Variables with same name as class-scope variables » Class-scope variable “hidden”
+• Access with scope resolution operator (::) ClassName::classVariableName
+– Variables only known to function they are defined in – Variables are destroyed after function completion
+• Operators to access class members – Identical to those for structs
+– Dot member selection operator (.)
+» Object
+» Reference to object
+– Arrow member selection operator (->)
+» Pointers
+
+• Separating interface from implementation
+– Advantage: Easier to modify programs
+– Disadvantage
+» Headerfiles
+• Portions of implementation: Inline member functions • Hints about other implementation: private members
+» Can hide more with proxy class
+• Header files
+– Class definitions and function prototypes
+– Included in each file using class
+» #include
+– File extension .h
+• Source-code files
+– Member function definitions
+– Same base name » Convention
+– Compiled and linked
+
+<Using SET and GET Function>
+
+• Setfunctions
+– Perform validity checks before modifying private data
+– Notify if invalid values
+– Indicate with return values
+• Getfunctions
+– “Query” functions
+– Control format of data returned
+
+priavate으로 선언되어있는 변수값을 바꿀때는
+public에 선언되어 있는 set get 함수 사용하여 바꾼다. 
+
+<Static>
+
+• static class variable
+– “Class-wide” data
+» Property of class, not specific object of class
+– Efficient when single copy of data is enough » Only the static variable has to be updated
+– May seem like global variables, but have class scope » Only accessible to objects of same class
+– Initialized exactly once at file scope
+– Exist even if no objects of class exist
+– Canbepublic,privateorprotected
+
+• Accessingstaticclassvariables
+– Accessible through any object of class – publicstaticvariables
+» Can also be accessed using binary scope resolution operator(::) Employee::count
+– privatestaticvariables
+» When no class member objects exist: Can only be accessed via public static
+member function
+              Employee::getCount()
+• static member functions
+– Cannot access non-static data or functions
+– Nothispointerforstaticfunctions
+» static data members and static member functions exist independent of objects
+
+Table::Table(const Table &t) //copy constructor { p=new Name[sz=t.sz];
+{
+    p = new Name[sz = t.sz];
+    for (int I=0;I<sz;I++) 
+        p[I]=t.p[I]; 
+}
+
+
+<COPY CONSTRUCTOR>
+
+shallow copy:
+두개의 오브젝트 하나의 타겟을 가리킴
+
+deep copy:
+두개의 오브젝트 두개의 같은 벨류를 가진 타겟을 가리키게됨.
